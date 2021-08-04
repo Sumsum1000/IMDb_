@@ -1,0 +1,28 @@
+4.8
+
+moviesList.json was created - Array of objects, each object is a page with 20 movies, each page contains: page: id, results: array of objects, each object is a movie, total_pages: 500,
+total_result: 500
+[
+ {
+   page: 1,
+   results: [
+     {movie 1},
+     {movie 2},
+     {movie 3},
+     {movie ...20}
+   ],
+   total_pages: 500,
+   total_result: 500
+ },
+ {
+   page: 2,
+   results: [
+     {movie 21},
+     {movie 22},
+     {movie 23},
+     {movie ...40}
+   ],
+   total_pages: 500,
+   total_result: 500
+ }
+]
