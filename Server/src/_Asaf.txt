@@ -1,6 +1,7 @@
 4.8
 
-moviesList.json was created - Array of objects, each object is a page with 20 movies, each page contains: page: id, results: array of objects, each object is a movie, total_pages: 500,
+moviesList.json was created - Array of objects, each object is a page with 20 movies, 
+each page contains: page: id, results: array of objects, each object is a movie, total_pages: 500,
 total_result: 500
 [
  {
