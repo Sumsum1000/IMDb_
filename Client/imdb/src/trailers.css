@@ -4,20 +4,41 @@
     height: 550px;
 }
 
-.carousel-caption{
+.carousel-inner .poster{
 width: 165px;
 height: 244px;
+position: relative;
+bottom: 10rem;
+right: inherit;
+padding: 0;
+left:2%
+
+
 }
 
 .play-icon img{
     width: 88px;
     height: 72px;
-    
 }
 
 .carousel-inner .play-icon{
-    left:30%;
-    bottom: 0.25rem;
+    left:23%;
+    top:55%;
+    right: inherit;
+    padding: 0;
+}
+
+.carousel-inner .title{
+    left:10%;
+    top: 50%;
+    font-size:40px;
+
+}
+
+.carousel-inner .trailer{
+    left:5%;
+    bottom: 31%;
+    font-size:15px;
 
 }
 

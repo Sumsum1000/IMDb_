@@ -6,6 +6,7 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
+import Trailer from './Trailer';
 
 
 
@@ -15,13 +16,14 @@ function App() {
   
   return (
     <div className="App">
-  
+   <Router>
         <MoviesProvider>
-        
             <Trailers/>
-       
+        <Route path="/trailers">
+          <Trailer/>
+        </Route>
         </MoviesProvider>
-    
+    </Router>
     </div>
   );
 }
