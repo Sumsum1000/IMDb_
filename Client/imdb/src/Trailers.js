@@ -1,7 +1,6 @@
 import { MoviesContext } from './MoviesContext';
 import {useContext} from 'react';
 import Carousel from 'react-bootstrap/Carousel';
-import { css, jsx } from '@emotion/react'
 import './trailers.css';
 import {
     Link,

@@ -18,8 +18,10 @@ function App() {
     <div className="App">
    <Router>
         <MoviesProvider>
+        <Route path="/trailers" exact>
             <Trailers/>
-        <Route path="/trailers">
+        </Route>
+        <Route path="/trailers/:id">
           <Trailer/>
         </Route>
         </MoviesProvider>
