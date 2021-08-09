@@ -32,13 +32,13 @@
 
 .Carouselcontainer a{
     display: flex;
-    gap: 10px;
+    gap: 5px;
     padding-top: 15px;
     text-decoration: none;
 }
 
 .Carouselcontainer a .buttonBack{
-    font-size: 20px;
+    font-size: 15px;
     letter-spacing: .02em;
     font-weight: 500;
 }
