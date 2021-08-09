@@ -1,0 +1,44 @@
+.app{ 
+  display: grid;
+  grid-template-columns: auto 862px auto;
+  grid-template-rows: 1fr 485px 1fr;
+  grid-template-areas: 
+    "empty header  empty-r"
+    "empty trailer empty-r"
+    "empty footer  empty-r";
+}
+
+.carousel
+    {
+        grid-area: trailers;
+        width: 100%;
+        height: 100%;
+        margin-top:8%;
+    }
+
+    .buttonBack{
+        color: white;
+    }
+
+
+.Carouselcontainer{
+    background-color: black;
+    width: 850px;
+    height: 48px;
+    grid-area: trailers;
+    z-index: 1;
+   
+}
+
+.Carouselcontainer a{
+    display: flex;
+    gap: 10px;
+    padding-top: 15px;
+    text-decoration: none;
+}
+
+.Carouselcontainer a .buttonBack{
+    font-size: 20px;
+    letter-spacing: .02em;
+    font-weight: 500;
+}
