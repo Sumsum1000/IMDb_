@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 
 export const MoviesContext = React.createContext({
-    movies: [],
+  movies: [],
 });
 
-export default function MoviesProvider({children}) {
+export default function MoviesProvider({ children }) {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {

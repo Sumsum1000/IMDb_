@@ -7,25 +7,27 @@ import {
   Switch,
 } from "react-router-dom";
 import Trailer from './Trailer';
-
-
+import NavHeader from './NavHeader';
 
 
 function App() {
 
-  
+
   return (
     <div className="App">
-   <Router>
+      <div className='xxx'>
+        <NavHeader />
+      </div>
+      <Router>
         <MoviesProvider>
-        <Route path="/trailers" exact>
-            <Trailers/>
-        </Route>
-        <Route path="/trailers/:id">
-          <Trailer/>
-        </Route>
+          <Route path="/trailers" exact>
+            <Trailers />
+          </Route>
+          <Route path="/trailers/:id">
+            <Trailer />
+          </Route>
         </MoviesProvider>
-    </Router>
+      </Router>
     </div>
   );
 }

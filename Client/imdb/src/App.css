@@ -2,6 +2,7 @@
 display: grid;
 grid-template-columns: auto 850px auto;
 grid-template-rows: 1fr 498px 1fr;
+grid-template-rows: 55px 800px;
 grid-template-areas: 
     "empty header  empty-r"
     "empty trailers empty-r"
@@ -12,5 +13,9 @@ height: 100vh;
 
 body, html{
   height: 100vh;
+}
+
+.xxx{
+  grid-area: header;
 }
 
