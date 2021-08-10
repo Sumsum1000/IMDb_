@@ -21,6 +21,7 @@ export default function Trailers(){
                     </Link>
                         <Carousel.Caption className= "poster">
                             <img className="d-block w-100" src={`http://image.tmdb.org/t/p/w200${movie.poster_path}`}/> 
+                            <div className="plus"></div>
                         </Carousel.Caption>
                         <Carousel.Caption className="play-icon">
                             <img className="d-block w-100" src={"/AnyConv.com__play-button-svgrepo-com-_1__1.svg"}/> 
