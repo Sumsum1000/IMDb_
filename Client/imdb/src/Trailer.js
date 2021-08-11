@@ -1,5 +1,5 @@
 import { MoviesContext } from './MoviesContext';
-import {useContext} from 'react';
+import {useContext, useState} from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import {
     useParams,
@@ -13,6 +13,13 @@ export default function Trailer(){
     const movieId = movies.filter(movie => movie.id == id);
     const movieWithoutId = movies.filter(movie => movie.id != id);
 
+    const [index, setIndex] = useState(0);
+
+    const handleSelect = (selectedIndex, e) => {
+      setIndex(selectedIndex);
+    };
+    
+
     return(
         <div className="container">
             <div className="Carouselcontainer">
@@ -23,20 +30,20 @@ export default function Trailer(){
                 </Link>
                  </div>
 
-            <Carousel interval={null} nextLabel={null} prevLabel={null}>
-                <Carousel.Item>
-                        <iframe  width="850" height="450" src={`https://www.youtube.com/embed/${movieId[0].videos.results[0].key}`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen frameborder="0"></iframe>
-                </Carousel.Item>  
-                {movieWithoutId.map(movie => {
-                    return(
-                        <Carousel.Item>   
-                            <iframe  width="850" height="450" src={`https://www.youtube.com/embed/${movie.videos.results[0].key}`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen frameborder="0"></iframe>
-                        </Carousel.Item>
-                    ) })}
-            </Carousel>
+                <Carousel activeIndex={index} onSelect={handleSelect} interval={null} nextLabel={null} prevLabel={null}>
+                    <Carousel.Item>
+                            <iframe  width="850" height="450" src={`https://www.youtube.com/embed/${movieId[0].videos.results[0].key}`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen frameborder="0"></iframe>
+                    </Carousel.Item>  
+                    {movieWithoutId.map(movie => {
+                        return(
+                            <Carousel.Item>   
+                                <iframe  width="850" height="450" src={`https://www.youtube.com/embed/${movie.videos.results[0].key}`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen frameborder="0"></iframe>
+                            </Carousel.Item>
+                        ) })}
+                </Carousel>
             </div>
             <div className="VideoInfo">
-
+                <img src={`http://image.tmdb.org/t/p/w200${movieId[0].poster_path}`}/>
             </div>
         </div>
        

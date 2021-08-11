@@ -20,10 +20,10 @@ function App() {
       </div>
       <Router>
         <MoviesProvider>
-          <Route path="/trailers" exact>
+          <Route path="/" exact>
             <Trailers />
           </Route>
-          <Route path="/trailers/:id">
+          <Route path="/:id">
             <Trailer />
           </Route>
         </MoviesProvider>

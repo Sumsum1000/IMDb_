@@ -12,11 +12,11 @@ export default function Trailers(){
 
 
   return Array.isArray(movies) && movies.length > 0 ? (
-      <Carousel interval={5000} nextLabel={null} prevLabel={null}>
+      <Carousel interval={5000} nextLabel={null} prevLabel={null} keyboard={false}>
           {movies.map(movie => {
              return(
                 <Carousel.Item>
-                    <Link to={`/trailers/${movie.id}`}>
+                    <Link to={`/${movie.id}`}>
                     <img className="d-block w-100" src={`http://image.tmdb.org/t/p/w500${movie.backdrop_path}`}/> 
                     </Link>
                         <Carousel.Caption className= "poster">

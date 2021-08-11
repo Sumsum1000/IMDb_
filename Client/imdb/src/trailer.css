@@ -8,10 +8,11 @@
     "empty footer  empty-r";
 }
 
-.container
-    {
-        grid-area: trailers;
-    }
+.container{
+    grid-area: trailers;
+    display: flex;
+  
+}
 
 .Carousel{
     width: 100%;
@@ -48,4 +49,10 @@
 /* .carousel-inner .active iframe{
 
 } */
+
+.VideoInfo img{
+    width: 120px;
+    height: 154px;
+    margin-top: 100px;
+}
 
