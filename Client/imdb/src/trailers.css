@@ -13,34 +13,29 @@ right: inherit;
 padding: 0;
 left:2%
 
-
 }
 
-.play-icon img{
-    width: 88px;
-    height: 72px;
-}
 
 .carousel-inner .play-icon{
     left:23%;
-    top:55%;
+    top:67%;
     right: inherit;
     padding: 0;
+    position: static;
 }
 
 .carousel-inner .title{
     left:10%;
-    top: 50%;
-    font-size:40px;
+    top: 63%;
+    font-size:35px;
+    position: static;
 
 }
 
-.carousel-inner .trailer{
-    left:5%;
-    bottom: 31%;
+.carousel-inner .title p:nth-child(2){
     font-size:15px;
-
 }
+
 
 .carousel-control-next span, .carousel-control-prev span{
     border: 2px solid white;
@@ -74,4 +69,16 @@ left:2%
     display: block;
     opacity: 0.4;
     content: url("data:image/svg+xml;utf8, <svg width='24px' height='34px' viewBox='0 0 24 34' xmlns='http://www.w3.org/2000/svg' role='presentation'><polygon fill='black' points='24 0 0 0 0 32 12.2436611 26.2926049 24 31.7728343'></polygon><polygon points='24 0 0 0 0 32 12.2436611 26.2926049 24 31.7728343'></polygon><polygon points='24 31.7728343 24 33.7728343 12.2436611 28.2926049 0 34 0 32 12.2436611 26.2926049'></polygon></svg>");
+}
+
+.carousel-inner .titleContainer{
+    display: flex;
+    flex-direction: row;
+    min-width: 0px;
+    gap: 20px;
+    position: absolute;
+    bottom: 100px;
+    left: 200px;
+    align-items: center;
+     
 }
