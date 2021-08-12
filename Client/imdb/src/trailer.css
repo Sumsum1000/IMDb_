@@ -1,87 +1,81 @@
-.app{ 
+/* .app {
   display: grid;
   grid-template-columns: auto 862px auto;
   grid-template-rows: 1fr 485px 1fr;
-  grid-template-areas: 
+  grid-template-areas:
     "empty header  empty-r"
     "empty trailer empty-r"
     "empty footer  empty-r";
+} */
+
+.container {
+  grid-area: trailers;
+  display: flex;
 }
 
-.container{
-    grid-area: trailers;
-    display: flex;
-  
+.Carousel {
+  width: 100%;
+  height: 100%;
+  margin-top: 8%;
 }
 
-.Carousel{
-    width: 100%;
-    height: 100%;
-    margin-top:8%;
+.buttonBack {
+  color: white;
 }
 
-.buttonBack{
-        color: white;
+.backContainer {
+  background-color: black;
+  width: 850px;
+  height: 48px;
+  grid-area: trailers;
+  z-index: 1;
 }
 
-
-.backContainer{
-    background-color: black;
-    width: 850px;
-    height: 48px;
-    grid-area: trailers;
-    z-index: 1;
-   
+.backContainer a {
+  display: flex;
+  gap: 5px;
+  text-decoration: none;
 }
 
-.backContainer a{
-    display: flex;
-    gap: 5px;
-    text-decoration: none;
-}
-
-.backContainer a .buttonBack{
-    font-size: 15px;
-    letter-spacing: .02em;
-    font-weight: 500;
+.backContainer a .buttonBack {
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  font-weight: 500;
 }
 
 /* .carousel-inner .active iframe{
 
 } */
 
-.VideoInfo .posterContainer img{
-    width: 120px;
-    height: 154px;
-    margin-top: 100px;
+.VideoInfo .posterContainer img {
+  width: 120px;
+  height: 154px;
+  margin-top: 100px;
 }
 
-.VideoInfo .posterContainer::before{
-    z-index: 10;
-    position: absolute;
-    display: block;
-    content: url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='white' role='presentation'><path fill='none' d='M0 0h24v24H0V0z'></path><path d='M18 13h-5v5c0 .55-.45 1-1 1s-1-.45-1-1v-5H6c-.55 0-1-.45-1-1s.45-1 1-1h5V6c0-.55.45-1 1-1s1 .45 1 1v5h5c.55 0 1 .45 1 1s-.45 1-1 1z'></path></svg>");
+.VideoInfo .posterContainer::before {
+  z-index: 10;
+  position: absolute;
+  display: block;
+  content: url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='white' role='presentation'><path fill='none' d='M0 0h24v24H0V0z'></path><path d='M18 13h-5v5c0 .55-.45 1-1 1s-1-.45-1-1v-5H6c-.55 0-1-.45-1-1s.45-1 1-1h5V6c0-.55.45-1 1-1s1 .45 1 1v5h5c.55 0 1 .45 1 1s-.45 1-1 1z'></path></svg>");
 }
 
-.VideoInfo .info h5{
-    white-space: nowrap;
+.VideoInfo .info h5 {
+  white-space: nowrap;
 }
 
-.VideoInfo{
-    display: flex;
-    gap:20px;
- 
+.VideoInfo {
+  display: flex;
+  gap: 20px;
 }
 
-.info{
-    margin-top: 100px;
-    color: white;
+.info {
+  margin-top: 100px;
+  color: white;
 }
 
-.info p{
-    display: inline-block;
-    padding-right: 5px;
-    margin: 0px;
+.info p {
+  display: inline-block;
+  padding-right: 5px;
+  margin: 0px;
 }
-
-

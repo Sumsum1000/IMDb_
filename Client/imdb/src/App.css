@@ -1,22 +1,29 @@
 .App {
-display: grid;
-grid-template-columns: auto 850px auto;
-grid-template-rows: 1fr 550px 1fr;
-grid-template-rows: 55px 800px;
-grid-template-areas: 
-    "empty header  empty-r"
+  display: grid;
+  grid-template-columns: auto 850px auto;
+  grid-template-rows: 55px 650px 300px 100px;
+  grid-template-areas:
+    "empty header   empty-r"
     "empty trailers empty-r"
-    "empty footer  empty-r";
-background-color: black;
-height: 100vh;
-
+    "empty featured empty-r"
+    "empty footer   empty-r";
+  background-color: black;
+  height: 100%;
 }
 
-body, html{
+body,
+html {
   height: 100vh;
 }
 
-.xxx{
+.grid-header {
   grid-area: header;
 }
 
+.grid-trailers {
+  grid-area: trailers;
+}
+
+.grid-featured {
+  grid-area: featured;
+}
