@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Trailer from './Trailer';
 import NavHeader from './NavHeader';
+import Main from './Main';
 
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
 
   return (
     <div className="App">
-      <div className='xxx'>
+      <Main/>
+      {/* <div className='xxx'>
         <NavHeader />
       </div>
       <Router>
@@ -27,7 +29,7 @@ function App() {
             <Trailer />
           </Route>
         </MoviesProvider>
-      </Router>
+      </Router> */}
     </div>
   );
 }

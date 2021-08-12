@@ -4,19 +4,26 @@ import Carousel from 'react-bootstrap/Carousel';
 import {
     useParams,
     Link,
+    useHistory,
   } from "react-router-dom";
 import './trailer.css';
 
 export default function Trailer(){
     const { id } = useParams();
     const {movies} = useContext(MoviesContext);
-    const movieId = movies.filter(movie => movie.id == id);
+    const selectedIndex = movies.findIndex(movie => movie.id == id)
+    const selectedMovie = movies[selectedIndex];
     const movieWithoutId = movies.filter(movie => movie.id != id);
+    const history = useHistory();
 
     const [index, setIndex] = useState(0);
 
-    const handleSelect = (selectedIndex, e) => {
-      setIndex(selectedIndex);
+    const handleSelect = (i, e) => {
+        if(movies[selectedIndex+1]){
+            history.push(`/${movies[selectedIndex+1].id}`)
+        } else {
+            history.push(`/${movies[0].id}`)
+        }
     };
     
 
@@ -32,18 +39,24 @@ export default function Trailer(){
 
                 <Carousel activeIndex={index} onSelect={handleSelect} interval={null} nextLabel={null} prevLabel={null}>
                     <Carousel.Item>
-                            <iframe  width="850" height="450" src={`https://www.youtube.com/embed/${movieId[0].videos.results[0].key}`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen frameborder="0"></iframe>
+                            <iframe  width="850" height="450" src={`https://www.youtube.com/embed/${selectedMovie.videos.results[0].key}`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen frameborder="0"></iframe>
                     </Carousel.Item>  
-                    {movieWithoutId.map(movie => {
+                    {/* {movieWithoutId.map(movie => {
                         return(
                             <Carousel.Item>   
                                 <iframe  width="850" height="450" src={`https://www.youtube.com/embed/${movie.videos.results[0].key}`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen frameborder="0"></iframe>
                             </Carousel.Item>
-                        ) })}
+                        ) })} */}
                 </Carousel>
             </div>
             <div className="VideoInfo">
-                <img src={`http://image.tmdb.org/t/p/w200${movieId[0].poster_path}`}/>
+                <div className="posterContainer">
+                     <img src={`http://image.tmdb.org/t/p/w200${selectedMovie.poster_path}`}/>
+                </div>
+                <div className="info">
+                    <h5>{selectedMovie.original_title} {`(${selectedMovie.release_date.slice(0,4)})`}</h5>
+                    {selectedMovie.genres.map(genre => <p> {genre.name},</p>)}
+                </div>
             </div>
         </div>
        

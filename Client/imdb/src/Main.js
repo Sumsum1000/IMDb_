@@ -4,7 +4,7 @@ import {
     Switch,
   } from "react-router-dom";
 import Trailers from "./Trailers";
-import Trailer from "./Trailers";
+import Trailer from "./Trailer";
 import NavHeader from './NavHeader';
 import MoviesProvider from './MoviesContext';
 
@@ -22,12 +22,12 @@ return(
     </Route>
     </Switch>
 </Router> */
- <div>
+ <>
 
 <div className='xxx'>
         <NavHeader />
-      </div>
-      <Router>
+</div>
+    <Router>
         <MoviesProvider>
         <Switch>
           <Route path="/" exact>
@@ -39,7 +39,7 @@ return(
           </Switch>
         </MoviesProvider>
       </Router>
-</div>
+</>
 
 
     );
