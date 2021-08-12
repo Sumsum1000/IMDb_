@@ -9,6 +9,7 @@ grid-template-areas:
     "empty footer  empty-r";
 background-color: black;
 height: 100vh;
+
 }
 
 body, html{
