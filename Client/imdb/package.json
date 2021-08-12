@@ -13,7 +13,11 @@
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
     "react-dom": "^17.0.2",
+<<<<<<< HEAD
     "react-player": "^2.9.0",
+=======
+    "react-multi-carousel": "^2.6.3",
+>>>>>>> e9e50fd41180a54fc02437b47142a94f8ccf0c37
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
