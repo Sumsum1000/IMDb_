@@ -1,5 +1,26 @@
 .section-class {
   background-color: yellowgreen;
-  width: 100%;
+  width: 270px;
   margin: 10px;
+}
+
+img.img-carousel {
+  width: 270px;
+  height: 250px;
+}
+
+.my-container {
+  display: flex;
+  justify-content: space-between;
+  width: 800px;
+}
+
+.item-class {
+  border: 1px solid white;
+}
+
+.class-name {
+  /* background-color: tomato; */
+  width: 100%;
+  height: 80%;
 }
