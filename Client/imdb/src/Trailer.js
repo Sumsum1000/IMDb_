@@ -7,25 +7,30 @@ import {
     useHistory,
   } from "react-router-dom";
 import './trailer.css';
+import ReactPlayer from "react-player";
+
+
 
 export default function Trailer(){
     const { id } = useParams();
     const {movies} = useContext(MoviesContext);
     const selectedIndex = movies.findIndex(movie => movie.id == id)
     const selectedMovie = movies[selectedIndex];
-    const movieWithoutId = movies.filter(movie => movie.id != id);
+    // const movieWithoutId = movies.filter(movie => movie.id != id);
     const history = useHistory();
 
     const [index, setIndex] = useState(0);
+    console.log(movies.length);
 
-    const handleSelect = (i, e) => {
-        if(movies[selectedIndex+1]){
-            history.push(`/${movies[selectedIndex+1].id}`)
-        } else {
-            history.push(`/${movies[0].id}`)
+    const handleSelect = () => {
+        if(selectedIndex == (movies.length-1)){
+            history.push(`/${movies[0].id}`);
+        }else {
+            history.push(`/${movies[selectedIndex+1].id}`);
         }
     };
     
+  
 
     return(
         <div className="container">
@@ -39,6 +44,12 @@ export default function Trailer(){
 
                 <Carousel activeIndex={index} onSelect={handleSelect} interval={null} nextLabel={null} prevLabel={null}>
                     <Carousel.Item>
+                    {/* <ReactPlayer  width="850px" height="350px" playing={true} controls={true}
+        url={`https://www.youtube.com/watch?v=${selectedMovie.videos.results[0].key}`}
+      /> */}
+                    {/* <video width="850"  controls="true" >
+                    <source type="video/mp4" src={"/INTERSTELLAR - Own it TODAY on Blu-ray and DIGITAL HD!.mp4"}/>
+                    </video> */}
                             <iframe  width="850" height="450" src={`https://www.youtube.com/embed/${selectedMovie.videos.results[0].key}`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen frameborder="0"></iframe>
                     </Carousel.Item>  
                     {/* {movieWithoutId.map(movie => {
