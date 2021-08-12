@@ -11,19 +11,7 @@ import MoviesProvider from './MoviesContext';
 export default function Main(){
 
 return(
-
-   /* <Router>
-    <Switch>
-    <Route path="/" exact>
-    <Trailers />
-    </Route>
-    <Route path="/:id" >
-        <Trailer />
-    </Route>
-    </Switch>
-</Router> */
  <>
-
 <div className='xxx'>
         <NavHeader />
 </div>
@@ -40,7 +28,6 @@ return(
         </MoviesProvider>
       </Router>
 </>
-
 
     );
 }
