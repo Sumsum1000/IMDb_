@@ -8,6 +8,7 @@ import Trailer from "./Trailer";
 import NavHeader from './NavHeader';
 import MoviesProvider from './MoviesContext';
 import FeaturedToday from "./FeaturedToday/FeaturedToday";
+import MovieToday from "./FeaturedToday/MovieToday/MovieToday";
 
 export default function Main(){
 
@@ -27,6 +28,10 @@ return(
           </Route>
           <Route path="/:id">
             <Trailer />
+          </Route>
+          {/* id 2  --------------------------------------*/}
+          <Route path="/:id2">
+              <MovieToday />
           </Route>
           </Switch>
         </MoviesProvider>

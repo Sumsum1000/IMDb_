@@ -19,11 +19,11 @@ import {
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3
+      items: 5
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 2
+      items: 4
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
@@ -53,18 +53,20 @@ export default function FeaturedToday() {
                 Featured today
             </h2>
             <Carousel 
-        responsive={responsive}
-        infinite={true}
-        itemClass='item-class'
-        containerClass='my-container'
-        className='class-name'
-     > 
-     {movies.map(movie => <Section movie_url={
-         `https://image.tmdb.org/t/p/w200/${movie.poster_path}`
-         } />
-         )} 
-      </Carousel>;
-
+                responsive={responsive}
+                infinite={true}
+                itemClass='item-class'
+                containerClass='my-container'
+                className='class-name'
+            > 
+            {/* to={`/${movie.id}`} */}
+            {movies.map(movie => <Link to={'/description'}>   
+                <Section movie_url={
+                `https://image.tmdb.org/t/p/w200/${movie.poster_path}`
+                } />
+                </Link>
+                )} 
+            </Carousel>;
         </div>
     )
 }

@@ -1,7 +1,7 @@
 .App {
   display: grid;
   grid-template-columns: auto 850px auto;
-  grid-template-rows: 55px 650px 300px 100px;
+  grid-template-rows: 55px 650px auto 100px;
   grid-template-areas:
     "empty header   empty-r"
     "empty trailers empty-r"
