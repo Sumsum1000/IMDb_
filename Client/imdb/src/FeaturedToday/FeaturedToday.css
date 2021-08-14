@@ -1,12 +1,19 @@
 .section-header {
-  color: rgb(255, 217, 0);
-  font-weight: 700;
-  font-size: 250%;
+  color: #f5c518;
+  font-weight: 500;
+  font-size:32px;
 }
+
 
 .featured-container {
   grid-area: featured;
+<<<<<<< HEAD
   display: flex;
   flex-direction: column;
   border: 3px solid rgb(255, 8, 8);
+=======
+  /* border: 1px solid white; */
+  width: 861px;
+  height: 393px;
+>>>>>>> 841feb1ac61181d1cbddffa01fb27ada40cee682
 }

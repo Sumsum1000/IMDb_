@@ -11,9 +11,10 @@
 
 /*------------------ Logo */
 .logo{
-    grid-area: a;
-    height: 100%;
-    flex: 1;
+  
+    height: 32px;
+    width: 64px;
+  
 }
 
 /*------------------ Hamburger */
@@ -43,7 +44,7 @@
 }
 
 .rect-search-container{
-    width: 100%;
+    width: 782px;
     height: 100%;
     background-color: rgb(255, 255, 255);
     border-radius: 6px;
