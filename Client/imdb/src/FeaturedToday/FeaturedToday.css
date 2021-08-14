@@ -7,4 +7,6 @@
 .featured-container {
   grid-area: featured;
   /* border: 1px solid white; */
+  width: 861px;
+  height: 393px;
 }
