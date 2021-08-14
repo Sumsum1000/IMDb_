@@ -39,16 +39,34 @@ left:2%
 }
 
 
-.carousel-control-next span, .carousel-control-prev span{
-    border: 2px solid white;
-    border-radius: 2px;
-    padding: 20px 12px;
-    
-}
-
 .carousel  .carousel-control-next, .carousel .carousel-control-prev{
+    height: fit-content;
+    width: fit-content;
+    position: absolute;
+    top: 220px;
+    border: 1px solid rgba(255,255,255,0.7);
+    border-radius: 4px;
+    cursor: pointer;
+    background: rgba(18,18,18,0.45);
     opacity: 1;
 }
+
+.carousel  .carousel-control-next:hover span, .carousel .carousel-control-prev:hover span{
+    filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+}
+
+.carousel-control-next .carousel-control-next-icon{
+    background-image: url("data:image/svg+xml;utf8, <svg width='24' height='24' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white' role='presentation'><path d='M5.622.631A2.153 2.153 0 0 0 5 2.147c0 .568.224 1.113.622 1.515l8.249 8.34-8.25 8.34a2.16 2.16 0 0 0-.548 2.07c.196.74.768 1.317 1.499 1.515a2.104 2.104 0 0 0 2.048-.555l9.758-9.866a2.153 2.153 0 0 0 0-3.03L8.62.61C7.812-.207 6.45-.207 5.622.63z'></path></svg>");
+    padding: 30px 22px;
+    background-size: initial;
+}
+
+.carousel-control-prev .carousel-control-prev-icon{
+    background-image: url("data:image/svg+xml;utf8,<svg width='24' height='24' xmlns='http://www.w3.org/2000/svg'  viewBox='0 0 24 24' fill='white' role='presentation'><path d='M18.378 23.369c.398-.402.622-.947.622-1.516 0-.568-.224-1.113-.622-1.515l-8.249-8.34 8.25-8.34a2.16 2.16 0 0 0 .548-2.07A2.132 2.132 0 0 0 17.428.073a2.104 2.104 0 0 0-2.048.555l-9.758 9.866A2.153 2.153 0 0 0 5 12.009c0 .568.224 1.114.622 1.515l9.758 9.866c.808.817 2.17.817 2.998-.021z'></path></svg>");
+    padding: 30px 22px;
+    background-size: initial;
+}
+
 
 
 .carousel-inner .poster::before{
@@ -83,4 +101,8 @@ left:2%
     left: 200px;
     align-items: center;
      
+}
+
+.carousel .carousel-inner a:hover .play-icon svg{
+    fill:#f5c518;
 }
