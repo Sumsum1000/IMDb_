@@ -60,7 +60,7 @@ export default function FeaturedToday() {
                 className='class-name'
             > 
             {/* to={`/${movie.id}`} */}
-            {movies.map(movie => <Link to={'/description'}>   
+            {movies.map(movie => <Link to={'/MovieToday'}>   
                 <Section movie_url={
                 `https://image.tmdb.org/t/p/w200/${movie.poster_path}`
                 } />
