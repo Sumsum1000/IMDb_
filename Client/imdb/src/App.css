@@ -3,7 +3,7 @@
   grid-template-columns: auto 850px auto;
   grid-template-rows: 55px 650px auto 100px;
   grid-template-areas:
-    "empty header   empty-r"
+    "header header   header"
     "empty trailers empty-r"
     "empty featured empty-r"
     "empty footer   empty-r";
@@ -14,10 +14,13 @@
 body,
 html {
   height: 100vh;
+  font-family: 'Roboto',sans-serif;
 }
 
 .grid-header {
   grid-area: header;
+  width: 100%;
+  height: 100%;
 }
 
 .grid-trailers {
@@ -25,6 +28,7 @@ html {
   display: flex;
   width: 100%;
   height: 100%;
+  margin-top: 10px;
 }
 
 .grid-featured {

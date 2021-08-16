@@ -1,6 +1,7 @@
 .container {
   grid-area: trailers;
   display: flex;
+  font-family:"Roboto" ;
 }
 
 .Carousel {
@@ -9,16 +10,13 @@
   margin-top: 8%;
 }
 
-.buttonBack {
-  color: white;
-}
 
 .backContainer {
   background-color: black;
   width: 850px;
   height: 48px;
-  grid-area: trailers;
   z-index: 1;
+  padding-top: 12px;
 }
 
 .backContainer a {
@@ -28,16 +26,14 @@
 }
 
 .backContainer a .buttonBack {
-  font-size: 15px;
-  letter-spacing: 0.02em;
-  font-weight: 500;
+  font-size: 14px;
+  color: white;
 }
 
 
 .VideoInfo .posterContainer img {
   width: 90px;
   height: 133px;
-  margin-top: 50px;
 }
 
 .VideoInfo .posterContainer::before {
@@ -49,6 +45,8 @@
 
 .VideoInfo .info h5 {
   white-space: nowrap;
+  font-size: 14px;
+  font-family: "Roboto";
 }
 
 .VideoInfo {
@@ -57,7 +55,6 @@
 }
 
 .info {
-  margin-top: 50px;
   color: white;
 }
 
@@ -65,6 +62,9 @@
   display: inline-block;
   padding-right: 5px;
   margin: 0px;
+  font-size: 14px;
+  font-family: "Roboto";
+  color: #FFFFFF8A;
 }
 
 .carousel-inner .prev, .carousel-inner .next{
@@ -104,10 +104,13 @@ right: 200px;
 
 .containerInfo{
     background-color: #121212;
+    width: 418px;
+    height: 504px;
+    padding: 24px 24px;
 }
 
 .posterContainer::before{
-    top:105px;
+    top: 82px;
     z-index: 10;
     position: absolute;
     display: block;
@@ -118,11 +121,29 @@ right: 200px;
     position: absolute;
     display: block;
     z-index: 2;
-    top:105px;
+    top:80px;
 }
 .posterContainer .plus::before{
     position: absolute;
     display: block;
     opacity: 0.4;
     content: url("data:image/svg+xml;utf8, <svg width='24px' height='34px' viewBox='0 0 24 34' xmlns='http://www.w3.org/2000/svg' role='presentation'><polygon fill='black' points='24 0 0 0 0 32 12.2436611 26.2926049 24 31.7728343'></polygon><polygon points='24 0 0 0 0 32 12.2436611 26.2926049 24 31.7728343'></polygon><polygon points='24 31.7728343 24 33.7728343 12.2436611 28.2926049 0 34 0 32 12.2436611 26.2926049'></polygon></svg>");
+}
+
+.trailer-info h2, .trailer-info h3{
+  color: white;
+  font-family: "Roboto";
+}
+
+.trailer-info h2{
+  font-size: 24px;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.trailer-info h3{
+  font-size: 12.8px;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: 0.5px;
 }

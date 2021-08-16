@@ -1,12 +1,14 @@
 .header-container{
     height: 100%;
     width: 100%;
-    background-color: rgb(0, 0, 0);
+    background-color: #121212;
+
 
     display: flex;
     align-items: center;
     gap: 10px;
     padding: 10px;
+    justify-content: center;
 }
 
 /*------------------ Logo */
@@ -19,12 +21,11 @@
 
 /*------------------ Hamburger */
 .burger-container{
-    grid-area: b;
-    flex: 1;
     height: 50%;
     display: flex;
     align-items:  flex-end;
     gap: 5px;
+    margin: 15px;
 }
 
 .hamburger-img{
@@ -39,7 +40,7 @@
 
 /*------------------ Search area */
 .search-area{
-    flex: 10;
+    /* flex: 10; */
     height: 95%;
 }
 
@@ -85,6 +86,28 @@
 .search-icon{
     height: 70%;
     margin-right: 10px;
+}
+
+.header-container .separator{
+    border: 1px solid #2e2e2e;
+    width: 1px;
+    height: 2rem;
+    margin: 0px 0.5rem;
+}
+
+.watchlist, .signIn{
+    color: white;
+    font-family: "Roboto";
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.signIn{
+    margin-left: 20px;
+}
+
+.IMDbPro{
+    margin-left: 10px;
 }
 
 
