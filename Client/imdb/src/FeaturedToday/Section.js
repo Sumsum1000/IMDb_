@@ -4,7 +4,7 @@ import './Section.css';
 const Section = ({movie_url}) => {
   return (
     <section className='section-class'>
-        <img src={movie_url} />
+        <img className='img-carousel' src={movie_url} />
     </section>
   );
 };

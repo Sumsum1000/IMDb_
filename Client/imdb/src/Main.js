@@ -8,6 +8,7 @@ import Trailer from "./Trailer";
 import NavHeader from './NavHeader';
 import MoviesProvider from './MoviesContext';
 import FeaturedToday from "./FeaturedToday/FeaturedToday";
+import MovieToday from './MovieToday/MovieToday';
 import upNext from './Images/upNext.PNG';
 
 export default function Main(){
@@ -17,7 +18,10 @@ return(
     <Router>
       <MoviesProvider>
       <Switch>
-
+      {/* MovieToday moved to top - doesnt work otherwise -------------------- */}
+          <Route path="/MovieToday">
+              <MovieToday />
+          </Route>
           <Route path="/" exact>
             <div className='grid-header'>
                 <NavHeader />
@@ -35,7 +39,6 @@ return(
             </div>
             <Trailer />
           </Route>
-          
           </Switch>
         </MoviesProvider>
       </Router>
