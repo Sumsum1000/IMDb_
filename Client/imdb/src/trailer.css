@@ -126,7 +126,7 @@ right: 200px;
 .posterContainer .plus::before{
     position: absolute;
     display: block;
-    opacity: 0.4;
+    opacity: 0.6;
     content: url("data:image/svg+xml;utf8, <svg width='24px' height='34px' viewBox='0 0 24 34' xmlns='http://www.w3.org/2000/svg' role='presentation'><polygon fill='black' points='24 0 0 0 0 32 12.2436611 26.2926049 24 31.7728343'></polygon><polygon points='24 0 0 0 0 32 12.2436611 26.2926049 24 31.7728343'></polygon><polygon points='24 31.7728343 24 33.7728343 12.2436611 28.2926049 0 34 0 32 12.2436611 26.2926049'></polygon></svg>");
 }
 
@@ -146,4 +146,9 @@ right: 200px;
   line-height: 1.5;
   font-weight: 400;
   letter-spacing: 0.5px;
+}
+
+
+.trailer-info{
+padding-top: 30px;
 }
