@@ -19,7 +19,7 @@ return(
       <MoviesProvider>
       <Switch>
       {/* MovieToday moved to top - doesnt work otherwise -------------------- */}
-          <Route path="/MovieToday">
+          <Route path="/MovieToday/:id">
               <MovieToday />
           </Route>
           <Route path="/" exact>

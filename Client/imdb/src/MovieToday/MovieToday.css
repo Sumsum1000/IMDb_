@@ -1,3 +1,7 @@
+.movie-today {
+  grid-area: trailers;
+}
+
 .rating-root {
   /* background-color: rgb(49, 44, 37); */
   width: 100%;
@@ -123,18 +127,20 @@ img + span {
   margin-right: 20px;
 }
 
-/* .movie-today-header {
-  background-color: yellowgreen;
-  grid-area: featured;
-
-  display: flex;
+/* .movie-today {
+  display: grid;
+  grid-template-columns: 15% auto 15%;
+  grid-template-areas: "movie-img movie-video movie-extras";
 }
 
-.start-icon {
-  width: 2%;
+.movie-img {
+  grid-area: movie-img;
 }
 
-.movie-today-rating {
-  display: flex;
-  flex-direction: column;
+.movie-video {
+  grid-area: movie-video;
+}
+
+.movie-all-media {
+  grid-area: movie-extras;
 } */

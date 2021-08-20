@@ -1,17 +1,54 @@
 import './MovieToday.css';
+import { MoviesContext } from '../MoviesContext';
+import { useContext, useEffect, useState} from 'react';
 import star from '../Images/YellowStar.png';
 import share from '../Images/Share.png';
 import apps from '../Images/Apps.png';
+import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 
-export default function Rating() {
+export default function MovieToday() {
+    
+
+    const {movies} = useContext(MoviesContext);
+    const {id} = useParams();
+    const currentMovie = movies.find(movie => movie.id == id);
+    console.log(currentMovie);
+    // console.log('movies_ ', movies);
+    // console.log('id_', id);
+    
+
+    // const [movieFromUrl, setmovieFromUrl] = useState({});
+    // const [currentMovie, setCurrentMovie] = useState({});
+
+    // useEffect(() => {
+    //     const movieFromUrl = fetch(data => data.json())
+    //     .then(data => setmovieFromUrl(data));
+    // }, [])
+
+    // useEffect(() => {
+    //     setCurrentMovie(movieFromUrl);
+    //     console.log('Current: ', currentMovie);
+    // }, [movieFromUrl])
+
+
+
+
+
+
+    
+
     return(
-        <div>
+            // <h1>123 - {}</h1>
+        
+        // //<Link to='/MovieToday/:id'>
+        <div className='movie-today'>
         {/* Name and rating - top ----------------------------- */}
         <div className='rating-root'>
             <div className='xxx'>
                 <div>
-                    <h3 className='movie-name'>Luca</h3>
-                    <span>2021 - PG - 1h 35min</span>
+                    <h3 className='movie-name'>{currentMovie.original_title}</h3>
+                    <span>{currentMovie.release_date}</span>
                 </div>
                 <div className='line'>
                     <div className='rating'>
@@ -19,8 +56,10 @@ export default function Rating() {
                         <div className='rating-element-bottom'>
                             <img className='star-img' src={star} />
                             <div className='rating-numbers-container'>
-                                <span ><span className='current-rating'>7.5</span>/10</span>
-                                <span className='k'>90K</span>
+                                <span ><span className='current-rating'>{currentMovie.vote_average}</span>/10</span>
+                                <span className='k'>{
+                                    currentMovie.popularity // Need to round number K/M -------------
+                                }K</span>
                             </div>
                         </div>
                     </div>
@@ -43,7 +82,11 @@ export default function Rating() {
             <div className='devider'></div>
             <img src={share} className='cast-user-icon' />
         </div>
+        {/* Media ----------------------------------------------------------- */}
+  
         </div>
+        //</Link>
+        
 
         
     )

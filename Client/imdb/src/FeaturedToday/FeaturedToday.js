@@ -34,18 +34,7 @@ import {
 export default function FeaturedToday() {
 
     const {movies} = useContext(MoviesContext);
-    console.log('Featured Movies: ', movies);
-    // const [moviesList, setMoviesList] = useState([]);
 
-    // useEffect(() => {
-    //     setMoviesList(movies);
-    // }, [])
-
-    // useEffect(() => {
-    //     setMoviesList(moviesList);
-    // }, [moviesList])
-
-    console.log('Featured Movies: ', movies);
     return(
         
         <div className='featured-container'>
@@ -60,7 +49,7 @@ export default function FeaturedToday() {
                 className='class-name'
             > 
             {/* to={`/${movie.id}`} */}
-            {movies.map(movie => <Link to={'/MovieToday'}>   
+            {movies.map(movie => <Link to={`/MovieToday/${movie.id}`}>   
                 <Section movie_url={
                 `https://image.tmdb.org/t/p/w200/${movie.poster_path}`
                 } />
