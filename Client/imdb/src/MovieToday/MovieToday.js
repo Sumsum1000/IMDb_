@@ -42,8 +42,9 @@ export default function MovieToday() {
             // <h1>123 - {}</h1>
         
         // //<Link to='/MovieToday/:id'>
+
         <div className='movie-today'>
-        {/* Name and rating - top ----------------------------- */}
+    {/* Name and rating - top ----------------------------- */}
         <div className='rating-root'>
             <div className='xxx'>
                 <div>
@@ -74,7 +75,7 @@ export default function MovieToday() {
                 </div>
             </div>
         </div>
-        {/* Cast -User reviews ---------------------------------------------- */}
+    {/* Cast -User reviews ---------------------------------------------- */}
         <div className='cast-user-review-root'>
             <span>Cast & crew - Trivia - IMDbPro</span>
             <img src={apps} className='cast-user-icon' />
@@ -82,9 +83,23 @@ export default function MovieToday() {
             <div className='devider'></div>
             <img src={share} className='cast-user-icon' />
         </div>
-        {/* Media ----------------------------------------------------------- */}
-  
+    {/* Media ----------------------------------------------------------- */}
+        <div className='media'>
+            <img className='movie-img' src={`http://image.tmdb.org/t/p/w200${currentMovie.poster_path}`} />
+
+            <iframe className='movie-video' src={`https://www.youtube.com/embed/${currentMovie.videos.results[0].key}?autoplay=1`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen frameborder="0" />
+            <div className='movie-all-media'>
+                    <div className='media-photos-videos'>
+                            <span>Videos</span>
+                    </div>
+                    <div className='media-photos-videos'>
+                            <span>Photos</span>
+                    </div>
+            </div>
+
         </div>
+        </div>
+  
         //</Link>
         
 

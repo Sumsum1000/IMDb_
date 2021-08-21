@@ -1,11 +1,14 @@
 import express from 'express';
 import logger from 'morgan';
+import cors from 'cors';
 
 import {MoviesRouter} from './src/movies.routs.mjs';
 
 export const app = express();
 
 app.use(logger('dev'));
+
+app.use(cors());
 
 app.use(express.json());
 
