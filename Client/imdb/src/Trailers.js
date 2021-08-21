@@ -12,7 +12,7 @@ export default function Trailers(){
     console.log('trailer Component', movies)
 
   return Array.isArray(movies) && movies.length > 0 ? (
-      <Carousel interval={null} nextLabel={null} prevLabel={null} keyboard={false}>
+      <Carousel interval={5000} nextLabel={null} prevLabel={null} keyboard={false}>
           {movies.map(movie => {
              return(
                 <Carousel.Item>

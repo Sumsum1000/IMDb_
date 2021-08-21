@@ -2,6 +2,7 @@ import './FeaturedToday.css';
 import Section from './Section';
 import { useState, useEffect } from 'react';
 import { MoviesContext } from '../MoviesContext';
+import star from '../Images/YellowStar.png';
 import { useContext } from 'react';
 import {
     useParams,
@@ -48,13 +49,25 @@ export default function FeaturedToday() {
                 containerClass='my-container'
                 className='class-name'
             > 
-            {/* to={`/${movie.id}`} */}
-            {movies.map(movie => <Link to={`/MovieToday/${movie.id}`}>   
+            {movies.map(movie => 
+            <div className='carousel-card'>
+            <Link to={`/MovieToday/${movie.id}`}>   
                 <Section movie_url={
                 `https://image.tmdb.org/t/p/w200/${movie.poster_path}`
                 } />
                 </Link>
+                <div  className='fan-favorites-card-bottom'>
+                <div className='carousel-card-rating'>
+                    <img className='star-img' src={star} />
+                    <p>{movie.vote_average}</p>
+                </div>
+                <h3 className='carousel-card-movie-title'>{movie.original_title}</h3>
+                    
+                </div>
+            </div>
+                
                 )} 
+                
             </Carousel>;
         </div>
     )

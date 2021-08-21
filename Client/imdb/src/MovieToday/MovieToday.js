@@ -14,35 +14,8 @@ export default function MovieToday() {
     const {id} = useParams();
     const currentMovie = movies.find(movie => movie.id == id);
     console.log(currentMovie);
-    // console.log('movies_ ', movies);
-    // console.log('id_', id);
-    
-
-    // const [movieFromUrl, setmovieFromUrl] = useState({});
-    // const [currentMovie, setCurrentMovie] = useState({});
-
-    // useEffect(() => {
-    //     const movieFromUrl = fetch(data => data.json())
-    //     .then(data => setmovieFromUrl(data));
-    // }, [])
-
-    // useEffect(() => {
-    //     setCurrentMovie(movieFromUrl);
-    //     console.log('Current: ', currentMovie);
-    // }, [movieFromUrl])
-
-
-
-
-
-
-    
-
+ 
     return(
-            // <h1>123 - {}</h1>
-        
-        // //<Link to='/MovieToday/:id'>
-
         <div className='movie-today'>
     {/* Name and rating - top ----------------------------- */}
         <div className='rating-root'>
