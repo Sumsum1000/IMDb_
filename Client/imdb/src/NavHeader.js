@@ -1,13 +1,28 @@
 import './NavHeader.css';
 import logo from './Images/IMDb.png';
 import hamburger from './Images/hamburger-icon.png';
-import serachIcon from './Images/Search-icon.png';
+import {useState, useEffect} from 'react';
 import {
     Link,
   } from "react-router-dom";
+import { MoviesContext } from './MoviesContext';
+import {useContext} from 'react';
   
 
 export default function NavHeader() {
+    const {movies} = useContext(MoviesContext);
+    const [value, setValue] = useState('');
+    const [SearchedItems, setSearchedItems] = useState([]);
+
+    const search = (e) =>{
+        setValue(e.target.value);
+    }
+
+    useEffect(() => {
+        setSearchedItems(movies.filter(movie => movie.title.toLowerCase().includes(value.toLowerCase())));
+    }, [value]);
+
+
     return (
         <header className='header-container'>
             <Link to={"/"}>
@@ -27,9 +42,24 @@ export default function NavHeader() {
                             </label>
                         </div>
                         <div class="searchTyping">
-                            <input class="imdb-header-search-input"  type="text" value="" autocomplete="off" name="q" placeholder="Search IMDb" autocapitalize="off" autocorrect="off"/>
+                            <input value={value} onChange={search} class="imdb-header-search-input"  autoComplete="off" type="text"  name="q" placeholder="Search IMDb"/>
+                            {SearchedItems.length !== 0 ? 
+                              <ul>
+                                  { SearchedItems.map( movie => 
+                                  <li> 
+                                      <div className="imgSearch"><img src={`http://image.tmdb.org/t/p/w200${movie.poster_path}`}/></div>
+                                      <div className="searchcontainer">
+                                             <div class="titleSearch">{movie.title}</div>
+                                             <div className="searchdate">{movie.release_date.slice(0,4)}</div>
+                                             {movie.genres.map(genre => <span>{genre.name}</span>)}
+                                      </div>
+                                  </li> ) }
+                              </ul>
+                                :
+                                ""
+                            }
                         </div>
-                        <button class="suggestion-search-button" type="submit">
+                        <button class="suggestion-search-button" type="submit" disabled>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#828282" role="presentation"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
                         </button>
                     </form>

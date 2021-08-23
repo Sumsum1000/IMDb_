@@ -9,7 +9,6 @@ import {
 
 export default function Trailers(){
     const {movies} = useContext(MoviesContext);
-    console.log('trailer Component', movies)
 
   return Array.isArray(movies) && movies.length > 0 ? (
       <Carousel interval={5000} nextLabel={null} prevLabel={null} keyboard={false}>
