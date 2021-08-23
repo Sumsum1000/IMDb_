@@ -22,8 +22,7 @@ export default function Trailer(){
         history.push(`/${movies[(movies.length-1)].id}`);
         }else{
             history.push(`/${movies[selectedIndex-1].id}`);
-        }
-        
+        }   
     }
 
     const nextSelect = () =>{

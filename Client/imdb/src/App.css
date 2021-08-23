@@ -1,7 +1,7 @@
 .App {
   display: grid;
   grid-template-columns: auto 1280px auto;
-  grid-template-rows: 56px 650px 300px 100px;
+  grid-template-rows: 55px 650px auto 100px;
   grid-template-areas:
     "header header   header"
     "empty trailers empty-r"
@@ -14,7 +14,7 @@
 body,
 html {
   height: 100vh;
-  font-family: 'Roboto',sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .grid-header {

@@ -2,6 +2,7 @@ import './FeaturedToday.css';
 import Section from './Section';
 import { useState, useEffect } from 'react';
 import { MoviesContext } from '../MoviesContext';
+import star from '../Images/YellowStar.png';
 import { useContext } from 'react';
 import {
     useParams,
@@ -15,11 +16,11 @@ import {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 5
+      items: 6
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 5
+      items: 6
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -34,18 +35,7 @@ import {
 export default function FeaturedToday() {
 
     const {movies} = useContext(MoviesContext);
-    console.log('Featured Movies: ', movies);
-    // const [moviesList, setMoviesList] = useState([]);
 
-    // useEffect(() => {
-    //     setMoviesList(movies);
-    // }, [])
-
-    // useEffect(() => {
-    //     setMoviesList(moviesList);
-    // }, [moviesList])
-
-    console.log('Featured Movies: ', movies);
     return(
         
         <div className='featured-container'>
@@ -59,13 +49,25 @@ export default function FeaturedToday() {
                 containerClass='my-container'
                 className='class-name'
             > 
-            {/* to={`/${movie.id}`} */}
-            {movies.map(movie => <Link to={'/MovieToday'}>   
+            {movies.map(movie => 
+            <div className='carousel-card'>
+            <Link to={`/MovieToday/${movie.id}`}>   
                 <Section movie_url={
                 `https://image.tmdb.org/t/p/w200/${movie.poster_path}`
                 } />
                 </Link>
+                <div  className='fan-favorites-card-bottom'>
+                <div className='carousel-card-rating'>
+                    <img className='star-img' src={star} />
+                    <p>{movie.vote_average}</p>
+                </div>
+                <h3 className='carousel-card-movie-title'>{movie.original_title}</h3>
+                    
+                </div>
+            </div>
+                
                 )} 
+                
             </Carousel>;
         </div>
     )

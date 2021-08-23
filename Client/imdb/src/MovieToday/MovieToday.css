@@ -28,21 +28,17 @@ h3 + span {
 .rating {
   /* background-color: rgb(0, 0, 0); */
   color: rgba(255, 255, 255, 0.7);
-  width: 100px;
+  width: 120px;
   line-height: 15px;
   font-weight: 700;
   display: flex;
+  justify-content: center;
   gap: 0;
   flex-direction: column;
-  align-items: flex-end;
-}
-
-.rating-item span {
-  /* background-color: darkgoldenrod; */
+  align-items: center;
 }
 
 .element-title {
-  width: 100%;
   margin: 0;
   margin-bottom: 8px;
   font-size: 75%;
@@ -61,22 +57,19 @@ h3 + span {
 }
 
 .star-img {
-  width: 50%;
-  height: 50%;
-  /* position: relative;
-  right: 55%;
-  bottom: 30px; */
+  width: 43%;
+  height: 43%;
 }
 
 .rating-numbers-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .rating-element-bottom {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
   gap: 10%;
 }
 
@@ -91,10 +84,11 @@ h3 + span {
 .cast-user-review-root {
   width: 100%;
   color: white;
+  padding: 10px;
   background-color: rgb(68, 68, 68);
-  padding: 16px 0;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   gap: 5px;
   border-radius: 5px;
 }
@@ -116,26 +110,63 @@ img + span {
 }
 
 .cast-user-icon {
-  width: 3%;
-  height: 3%;
+  width: 2%;
+  height: 2%;
 }
 
 .cast-user-review-root :last-child {
   margin-right: 20px;
 }
 
-/* .movie-today-header {
-  background-color: yellowgreen;
-  grid-area: featured;
+/* .movie-today {
+  display: grid;
+  grid-template-columns: 15% auto 15%;
+  grid-template-areas: "movie-img movie-video movie-extras";
+} */
 
-  display: flex;
+.media {
+  position: relative;
+  display: grid;
+  gap: 5px;
+  grid-template-columns: 270px auto 180px;
+  grid-template-areas: "left center right";
+}
+.movie-today {
+  grid-area: trailers;
+  position: relative;
 }
 
-.start-icon {
-  width: 2%;
+.movie-img {
+  grid-area: left;
+  width: 100%;
+  height: 420px;
 }
 
-.movie-today-rating {
+.movie-video {
+  grid-area: center;
+  position: absolute;
+  width: 800px;
+  height: 420px;
+  bottom: 0;
+  /* width: 500px;
+  height: 300px; */
+}
+
+.movie-all-media {
+  grid-area: right;
+  width: 180px;
+  background-color: rgb(49, 49, 49);
+  color: white;
   display: flex;
   flex-direction: column;
-} */
+  border-radius: 5px;
+}
+
+.media-photos-videos {
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

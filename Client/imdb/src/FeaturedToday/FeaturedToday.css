@@ -8,5 +8,34 @@
   grid-area: featured;
   display: flex;
   flex-direction: column;
-  border: 3px solid rgb(255, 8, 8);
+}
+
+.fan-favorites-card-bottom {
+  width: 200px;
+  height: 200px;
+  background-color: rgb(20, 20, 20);
+  color: white;
+  margin: 0;
+  padding: 10px;
+}
+
+.carousel-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-card-rating {
+  display: flex;
+  gap: 10px;
+}
+
+.carousel-card-rating img {
+  width: 10%;
+  height: 35%;
+}
+
+.carousel-card-movie-title {
+  font-size: 105%;
+  font-weight: 400;
 }
