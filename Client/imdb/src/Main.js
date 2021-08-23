@@ -20,7 +20,12 @@ return(
       <Switch>
       {/* MovieToday moved to top - doesnt work otherwise -------------------- */}
           <Route path="/MovieToday/:id">
-              <MovieToday />
+            <div className='grid-header'>
+                  <NavHeader />
+            </div>
+            <div className='grid-MovieToday'>
+                <MovieToday />
+            </div>
           </Route>
           <Route path="/" exact>
             <div className='grid-header'>

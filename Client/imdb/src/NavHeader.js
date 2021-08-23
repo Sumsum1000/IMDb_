@@ -19,7 +19,9 @@ export default function NavHeader() {
     }
 
     useEffect(() => {
-        setSearchedItems(movies.filter(movie => movie.title.toLowerCase().includes(value.toLowerCase())));
+        value !== ''
+        ? setSearchedItems(movies.filter(movie => movie.title.toLowerCase().includes(value.toLowerCase())))
+        : setSearchedItems([])
     }, [value]);
 
 

@@ -132,7 +132,7 @@ img + span {
   grid-template-areas: "left center right";
 }
 .movie-today {
-  grid-area: trailers;
+  /* grid-area: trailers; */
   position: relative;
 }
 
