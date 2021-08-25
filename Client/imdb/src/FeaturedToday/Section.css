@@ -1,11 +1,15 @@
 .section-class {
-  background-color: yellowgreen;
+  /* background-color: yellowgreen; */
   width: 200px;
 }
 
 img.img-carousel {
   width: 200px;
   height: 290px;
+}
+
+img.img-carousel:hover {
+  opacity: 0.9;
 }
 
 .item-class {

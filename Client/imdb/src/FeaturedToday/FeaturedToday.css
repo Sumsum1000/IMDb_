@@ -17,6 +17,7 @@
   color: white;
   margin: 0;
   padding: 10px;
+  position: relative;
 }
 
 .carousel-card {
@@ -39,3 +40,53 @@
   font-size: 105%;
   font-weight: 400;
 }
+
+.watch-list-container {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+span.watch-list {
+  color: #5799ef;
+  background-color: #292929;
+  font-size: 85%;
+  font-weight: 700;
+  display: block;
+  padding: 8px;
+  border-radius: 3px;
+  width: 180px;
+  margin-bottom: 10px;
+
+  display: flex;
+  justify-content: center;
+}
+
+span.plus {
+  margin-right: 5px;
+}
+
+span.trailer {
+  font-size: 95%;
+  font-weight: 700;
+}
+
+.trailer-container {
+  display: flex;
+}
+
+/* .arrow {
+  width: 15px;
+  height: 15px;
+
+  border: 0 0 0 5px solid white;
+} */
+
+/* svg.list-icon {
+  fill: #5799ef;
+  width: 8%;
+  display: inline-block;
+} */

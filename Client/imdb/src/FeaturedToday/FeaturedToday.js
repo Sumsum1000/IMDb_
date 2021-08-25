@@ -3,6 +3,7 @@ import Section from './Section';
 import { useState, useEffect } from 'react';
 import { MoviesContext } from '../MoviesContext';
 import star from '../Images/YellowStar.png';
+import listIcon from '../Images/list-icon.svg';
 import { useContext } from 'react';
 import {
     useParams,
@@ -62,7 +63,14 @@ export default function FeaturedToday() {
                     <p>{movie.vote_average}</p>
                 </div>
                 <h3 className='carousel-card-movie-title'>{movie.original_title}</h3>
-                    
+                <div className='watch-list-container'>
+                    <span className='watch-list'><span className='plus'>+</span>WatchList</span> 
+                    <div className='trailer-container'>
+
+                        <span className='trailer'>Trailer</span>
+                    </div>
+                </div>
+               
                 </div>
             </div>
                 
