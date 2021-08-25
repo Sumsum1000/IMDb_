@@ -25,7 +25,9 @@ return(
       <Switch>
 
           <Route path="/signin" exact>
+          <div className='grid-signIn'>
             <SignIn/>
+          </div>
           </Route>
 
           <Route path="/MovieToday/:id">

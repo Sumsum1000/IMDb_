@@ -1,0 +1,63 @@
+.signIn-container{
+font-family: verdana, Arial, sans-serif;
+ background-color: white;
+ width: 1008px;
+ height: 613px;
+ margin: auto;
+ display: flex;
+ gap: 10px;
+}
+
+.perks{
+display: flex;
+flex-direction: column;
+gap: 15px;
+border-left: 1px solid #dddddd;
+}
+
+.perks h1{
+color: #333333;
+font-size: 21px;
+line-height: 110%;
+font-weight: bold;
+}
+
+.perks div p{
+margin: 0;
+font-size: 13px;
+}
+
+.signin-createAccount-container form{
+    display: flex;
+    flex-direction: column;
+}
+
+.signin-createAccount-container form label{
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.signin-createAccount-container form input{
+    width: 312px;
+    height: 31px;
+    margin-bottom: 10px;
+}
+
+.signin-createAccount-container button{
+    margin-top: 10px;
+    padding: 4px 8px;
+    background-color: #E4B721;
+    font-size: 14px;
+    line-height: 22px;
+    width: 242px;
+    height: 34px;
+    border:none;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+
