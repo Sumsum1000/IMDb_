@@ -203,8 +203,7 @@ export default function NavHeader() {
         : setSearchedItems([])
     }, [value]);
 
-   
-
+  
     return (
     <ThemeProvider theme={theme}>
         <HeaderContainer>
@@ -225,7 +224,7 @@ export default function NavHeader() {
                             </label>
                         </SearchCategorySelector>
                         <SearchTyping>
-                            <SearchInput ref={inputRef} value={value} onChange={search} />
+                            <SearchInput ref={inputRef} value={value} onChange={search} onBlur={() =>  setValue("")}/>
                             {SearchedItems.length !== 0 ? 
                               <Ul>
                                   { SearchedItems.map( movie => 

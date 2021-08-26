@@ -1,31 +1,58 @@
 import './signin.css';
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from '@hookform/error-message';
+import {
+    Link,
+  } from "react-router-dom";
+
+
 
 export default function SignIn (){
     const { handleSubmit, register, formState: { errors } } = useForm();
-    const onSubmit = (values, e) => {
-        e.target.reset();
-  
+    const onSubmit = async (values, e) => {
+       // e.target.reset();
+        try {
+            const res = await fetch('http://localhost:8080/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    password: values.password,
+                    email: values.Email
+                })
+            })
+            const loggedIn = await res.json();
+            console.log('loggedin', loggedIn)
+            //log in from context
+        } catch(err) {
+            console.log(err)
+        }
+       
     }
+
 
     return(
        <div className="signIn-container">
            <div className="signin-createAccount-container">
                <form onSubmit={handleSubmit(onSubmit)}>
-                   <label>Username</label>
+                   <label>Email</label>
                     <input
                     type="text"
                     autoComplete= "off"
-                    {...register("Username", {
+                    {...register("Email", {
                     required: "Required",
+                    // pattern: {
+                    //     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    //     message: "invalid email address"
+                    //   }
                     })}
                     />
                     <ErrorMessage
                     errors={errors}
-                    name="Username"
-                    // message = "invalid Username"
-                    // render={({ message }) => <p>{message}</p>}
+                    name="Email"
+                    message = "invalid Email"
+                    render={({ message }) => <p>{message}</p>}
                     />
 
                     <label>Password</label>
@@ -34,9 +61,9 @@ export default function SignIn (){
                     autoComplete= "off"
                     {...register("password", {
                     required: "Required",
-                    pattern: {
-                      value:  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
-                    }
+                    // pattern: {
+                    //   value:  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
+                    // }
                     })}
                     />
                     <ErrorMessage
@@ -49,9 +76,12 @@ export default function SignIn (){
                     <button type="submit" >Sign In</button>
                </form>
 
-               <button>Create a New Account</button>
+               <Link to="/create_Account">
+                    <button>Create a New Account</button>
+               </Link>
                <p class="text-center"><small>By signing in, you agree to IMDb's Conditions of Use and Privacy Policy.</small></p>
            </div>
+
            <div className="perks">
                 <h1>Benefits of your free IMDb account</h1>
                 <div>

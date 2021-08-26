@@ -11,6 +11,7 @@ import FeaturedToday from "./FeaturedToday/FeaturedToday";
 import MovieToday from './MovieToday/MovieToday';
 import upNext from './Images/upNext.PNG';
 import SignIn from './SignIn';
+import CreateAccount from "./CreateAccount";
 
 
 export default function Main(){
@@ -19,21 +20,28 @@ return(
  <>
     <Router>
       <MoviesProvider>
-         <div className='grid-header'>
-                  <NavHeader />
-          </div>
       <Switch>
 
           <Route path="/signin" exact>
+          <div className='grid-header'>
+                  <NavHeader />
+          </div>
           <div className='grid-signIn'>
             <SignIn/>
           </div>
+          </Route>
+
+          <Route path="/create_Account">
+            <CreateAccount/>
           </Route>
 
           <Route path="/MovieToday/:id">
             <div className='grid-MovieToday'>
                 <MovieToday />
             </div>
+            <div className='grid-header'>
+                  <NavHeader />
+          </div>
           </Route>
 
           <Route path="/" exact>
@@ -42,10 +50,16 @@ return(
                 <img className= "upNext" src={upNext}/>
             </div>
                 <FeaturedToday />
+            <div className='grid-header'>
+                  <NavHeader />
+          </div>
           </Route>
 
           <Route path="/:id">
             <Trailer />
+            <div className='grid-header'>
+                  <NavHeader />
+          </div>
           </Route>
 
           </Switch>
