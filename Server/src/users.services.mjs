@@ -29,9 +29,10 @@ export async function editUser(id, newUser) {
 export async function login(email, password) {
         let loggedIn = false;
         const user = await User.findOne({email, password});
-        if(user) {
-            loggedIn = true;
-        }
-        return loggedIn;
+       
+        if (!user) {
+            return false;
+        }else
+        return (user);
     }
 

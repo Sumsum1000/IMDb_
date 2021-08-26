@@ -17,13 +17,12 @@ app.use('/api/Movies', MoviesRouter);
 app.use('/api/users', usersRouter);
 
 app.post('/api/login', async (req, res) => {
-    console.log('login')
+   
    const {email, password} = req.body;
-   const loggedIn = await login(email, password)
-   if(loggedIn) {
-       res.json({
-           message: 'succuss'
-       });
+   const user = await login(email, password)
+   console.log(user);
+   if(user) {
+       res.json(user.username);
    } else {
        res.status(403).json({
            message: 'failed'

@@ -22,11 +22,11 @@ export default function SignIn (){
                     email: values.Email
                 })
             })
-            const loggedIn = await res.json();
-            console.log('loggedin', loggedIn)
+            const user = await res.json();
+            console.log(user);
             //log in from context
-        } catch(err) {
-            console.log(err)
+        } catch(e) {
+            console.log(e)
         }
        
     }
