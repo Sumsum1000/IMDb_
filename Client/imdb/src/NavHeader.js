@@ -28,6 +28,10 @@ const theme = {
  padding: 10px;
  justify-content: center;
  font-family: "Roboto";
+
+        a{
+            text-decoration: none;
+        }
  `;
 
  const BurgerContainer = styled.div
@@ -189,6 +193,14 @@ const UserName = styled.div
 padding-left:10px;
 `;
 
+const SignOut = styled.button
+`color: white;
+padding-left:10px;
+background-color: transparent;
+border:none;
+text-decoration: none;
+`;
+
   
 
 export default function NavHeader() {
@@ -196,7 +208,7 @@ export default function NavHeader() {
  
     const inputRef = useRef("");
     const {movies} = useContext(MoviesContext);
-    const {isLoggedIn, user} = useContext(UserContext);
+    const {isLoggedIn, setIsLoggedIn, user, setUser, setMessage} = useContext(UserContext);
     const [value, setValue] = useState('');
     const [SearchedItems, setSearchedItems] = useState([]);
 
@@ -209,6 +221,13 @@ export default function NavHeader() {
         ? setSearchedItems(movies.filter(movie => movie.title.toLowerCase().includes(value.toLowerCase())))
         : setSearchedItems([])
     }, [value]);
+
+    const handleSignOut = () =>{
+        localStorage.clear();
+        setUser({});
+        setIsLoggedIn(false);
+        setMessage("");
+    }
 
   
     return (
@@ -262,10 +281,17 @@ export default function NavHeader() {
             <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#919191" role="presentation"><path d="M17 3c1.05 0 1.918.82 1.994 1.851L19 5v16l-7-3-7 3V5c0-1.05.82-1.918 1.851-1.994L7 3h10zm-4 4h-2v3H8v2h3v3h2v-3h3v-2h-3V7z" fill="#919191"></path></svg>
             </div>
             <Watchlist>Watchlist</Watchlist>
-           {!isLoggedIn ? <Link to="/signin">
+
+            {/* handle sign in/sign out */}
+           {!isLoggedIn ? 
+           <Link to="/signin">
                 <SignIn>Sign In</SignIn>
-            </Link> : <UserName>Hello {user.username}
-            </UserName>}
+            </Link> :
+             <>
+             <UserName> Hello {user.username} </UserName> 
+             <SignOut onClick={handleSignOut}> Sign out </SignOut>
+             </> }
+
         </HeaderContainer>
     </ThemeProvider>
     )

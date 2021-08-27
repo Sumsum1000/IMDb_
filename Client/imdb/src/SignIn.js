@@ -11,23 +11,26 @@ import { useContext, useEffect } from 'react';
 
 export default function SignIn (){
     const { handleSubmit, register, formState: { errors } } = useForm();
-    const {login, isLoggedIn} = useContext(UserContext);
+    const {login, isLoggedIn, message, setMessage} = useContext(UserContext);
     const history = useHistory();
-    const onSubmit = async (values, e) => {
-       // e.target.reset();
+
+    const onSubmit = async (values) => {
         try {
-            login(values.email, values.password)
-            //log in from context
+            login(values.email, values.password);
         } catch(e) {
-            console.log(e)
+            console.log(e);
         }
     }
-    console.log(isLoggedIn)
+    
     useEffect(() => {
         if(isLoggedIn) {
             history.push('/');
         }
     }, [isLoggedIn]);
+
+    useEffect(() => {
+        setMessage("");
+    }, [history.location.pathname]);
 
 
     return(
@@ -70,7 +73,9 @@ export default function SignIn (){
                     message = "password must contain at least 8 characters. must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number. Can contain special characters"
                     render={({ message }) => <p>{message}</p>}
                     />
-
+                   
+                    <div>{message}</div>
+            
                     <button type="submit" >Sign In</button>
                </form>
 

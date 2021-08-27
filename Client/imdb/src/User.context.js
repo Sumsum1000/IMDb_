@@ -1,13 +1,18 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import jwt from 'jsonwebtoken'
+
 export const UserContext = React.createContext();
+
 function getToken() {
   return localStorage.getItem('auth')
 }
+
 export default function UsersProvider({ children }) {
   const [isLoggedIn, setIsLoggedIn] = useState(!!getToken());
-  const [user, setUser] = useState(jwt.decode(getToken(), {complete: true}).payload);
-console.log(jwt.decode(getToken(), {complete: true}))
+  const [user, setUser] = useState(jwt.decode(getToken(), {complete: true}));
+  const [message, setMessage] = useState("");
+
+  console.log(user)
 
   const login = useCallback((email, password) => {
     fetch('http://localhost:8080/api/login', {
@@ -21,19 +26,30 @@ console.log(jwt.decode(getToken(), {complete: true}))
     })
       .then(response => response.json())
       .then(data => {
-        debugger;
-        setUser(data.user);
-        setIsLoggedIn(true);
-        localStorage.setItem('auth', data.token)
+        
+        // debugger;
+        if(data.user){
+          setUser(data.user);
+          setIsLoggedIn(true);
+          localStorage.setItem('auth', data.token);
+
+        }else{
+          setMessage(data.message);
+        }
       });
   }, []);
+
+  console.log(isLoggedIn);
 
   return (
     <UserContext.Provider value={{
       user,
       setUser,
       isLoggedIn,
-      login
+      setIsLoggedIn,
+      login,
+      message,
+      setMessage,
     }}>
       {children}
     </UserContext.Provider>

@@ -4,7 +4,7 @@
   grid-template-rows: 55px 650px auto 100px;
   grid-template-areas:
     "header header   header"
-    "empty trailers empty-r"
+    "trailers trailers trailers"
     "empty featured empty-r"
     "empty footer   empty-r";
   background-color: black;
@@ -19,15 +19,15 @@ html {
 
 .grid-header {
   grid-area: header;
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
 }
 
 .grid-trailers {
   grid-area: trailers;
   display: flex;
-  width: 100%;
-  height: 100%;
+  width: fit-content;
+  margin: auto;
   margin-top: 10px;
 }
 
@@ -44,9 +44,8 @@ html {
 
 .grid-MovieToday{
   grid-area: trailers;
-  width: 100%;
-  height: 100%;
-  padding-top: 20px;
+  width: fit-content;
+  margin: auto;
 }
 
 .grid-signIn{

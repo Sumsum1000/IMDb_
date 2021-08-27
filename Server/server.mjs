@@ -7,7 +7,7 @@ import jwt from 'jsonwebtoken';
 import {MoviesRouter} from './src/movies.routs.mjs';
 import { usersRouter } from './src/users.routs.mjs';
 
-const SECRET = 'shahar'
+const SECRET = 'snow';
 export const app = express();
 
 app.use(logger('dev'));
@@ -18,7 +18,6 @@ app.use('/api/Movies', MoviesRouter);
 app.use('/api/users', usersRouter);
 
 app.post('/api/login', async (req, res) => {
-   console.log(req.body)
    const {email, password} = req.body;
    const user = await login(email, password)
    if(user) {
@@ -27,7 +26,8 @@ app.post('/api/login', async (req, res) => {
            id: user._id.toString(),
            email: user.email
        }
-       const token = jwt.sign(userResponse, SECRET)
+       const token = jwt.sign(userResponse, SECRET, {expiresIn: 60});
+       console.log(token)
        res.json({
         token,
         user: userResponse
