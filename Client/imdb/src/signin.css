@@ -64,5 +64,25 @@ font-size: 13px;
     font-weight: bold;
 }
 
+.signin-createAccount-container form .message{
+    border: 1px solid #c40000;
+    border-radius: 4px;
+    width: 312px;
+    height: 52px;
+    text-align: center;
+    padding-top: 10px;
+  
+}
+
+.signin-createAccount-container form .message i{
+    background-image: url(https://m.media-amazon.com/images/S/sash/mPGmT0r6IeTyIee.png);
+    background-position: -248px -35px;
+    width: 30px;
+    height: 27px;
+    display: block;
+    margin-top: -25px;
+    margin-left: 20px;
+}
+
 
 

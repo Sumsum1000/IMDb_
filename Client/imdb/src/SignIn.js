@@ -73,8 +73,11 @@ export default function SignIn (){
                     message = "password must contain at least 8 characters. must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number. Can contain special characters"
                     render={({ message }) => <p>{message}</p>}
                     />
-                   
-                    <div>{message}</div>
+                   { message.length > 0 &&
+                    <div className="message">{message}
+                    <i></i>
+                    </div>
+                   }
             
                     <button type="submit" >Sign In</button>
                </form>
