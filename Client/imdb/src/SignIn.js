@@ -2,34 +2,32 @@ import './signin.css';
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from '@hookform/error-message';
 import {
-    Link,
+    Link, useHistory,
   } from "react-router-dom";
+import { UserContext } from './User.context';
+import { useContext, useEffect } from 'react';
 
 
 
 export default function SignIn (){
     const { handleSubmit, register, formState: { errors } } = useForm();
+    const {login, isLoggedIn} = useContext(UserContext);
+    const history = useHistory();
     const onSubmit = async (values, e) => {
        // e.target.reset();
         try {
-            const res = await fetch('http://localhost:8080/api/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    password: values.password,
-                    email: values.Email
-                })
-            })
-            const user = await res.json();
-            console.log(user);
+            login(values.email, values.password)
             //log in from context
         } catch(e) {
             console.log(e)
         }
-       
     }
+    console.log(isLoggedIn)
+    useEffect(() => {
+        if(isLoggedIn) {
+            history.push('/');
+        }
+    }, [isLoggedIn]);
 
 
     return(
@@ -40,7 +38,7 @@ export default function SignIn (){
                     <input
                     type="text"
                     autoComplete= "off"
-                    {...register("Email", {
+                    {...register("email", {
                     required: "Required",
                     // pattern: {
                     //     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
@@ -50,7 +48,7 @@ export default function SignIn (){
                     />
                     <ErrorMessage
                     errors={errors}
-                    name="Email"
+                    name="email"
                     message = "invalid Email"
                     render={({ message }) => <p>{message}</p>}
                     />

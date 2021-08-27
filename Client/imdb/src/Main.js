@@ -12,6 +12,7 @@ import MovieToday from './MovieToday/MovieToday';
 import upNext from './Images/upNext.PNG';
 import SignIn from './SignIn';
 import CreateAccount from "./CreateAccount";
+import UsersProvider from "./User.context";
 
 
 export default function Main(){
@@ -20,6 +21,7 @@ return(
  <>
     <Router>
       <MoviesProvider>
+        <UsersProvider>
       <Switch>
 
           <Route path="/signin" exact>
@@ -63,6 +65,7 @@ return(
           </Route>
 
           </Switch>
+          </UsersProvider>
         </MoviesProvider>
       </Router>
 </>

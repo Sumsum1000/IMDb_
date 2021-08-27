@@ -8,6 +8,7 @@ import { MoviesContext } from './MoviesContext';
 import {useContext} from 'react';
 import styled from 'styled-components';
 import { ThemeProvider } from 'styled-components'
+import { UserContext } from './User.context';
 
 
 
@@ -183,6 +184,11 @@ padding-top: 5px;
  padding-top: 5px;
  `;
 
+const UserName = styled.div
+`color: white;
+padding-left:10px;
+`;
+
   
 
 export default function NavHeader() {
@@ -190,6 +196,7 @@ export default function NavHeader() {
  
     const inputRef = useRef("");
     const {movies} = useContext(MoviesContext);
+    const {isLoggedIn, user} = useContext(UserContext);
     const [value, setValue] = useState('');
     const [SearchedItems, setSearchedItems] = useState([]);
 
@@ -255,9 +262,10 @@ export default function NavHeader() {
             <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#919191" role="presentation"><path d="M17 3c1.05 0 1.918.82 1.994 1.851L19 5v16l-7-3-7 3V5c0-1.05.82-1.918 1.851-1.994L7 3h10zm-4 4h-2v3H8v2h3v3h2v-3h3v-2h-3V7z" fill="#919191"></path></svg>
             </div>
             <Watchlist>Watchlist</Watchlist>
-            <Link to="/signin">
+           {!isLoggedIn ? <Link to="/signin">
                 <SignIn>Sign In</SignIn>
-            </Link>
+            </Link> : <UserName>Hello {user.username}
+            </UserName>}
         </HeaderContainer>
     </ThemeProvider>
     )

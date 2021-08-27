@@ -28,11 +28,13 @@ export async function editUser(id, newUser) {
 
 export async function login(email, password) {
         let loggedIn = false;
+        console.log(email, password)
+
         const user = await User.findOne({email, password});
        
-        if (!user) {
-            return false;
-        }else
+        // if (!user) {
+        //     return false;
+        // }else
         return (user);
     }
 
