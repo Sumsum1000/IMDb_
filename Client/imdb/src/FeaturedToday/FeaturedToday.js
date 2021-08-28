@@ -33,22 +33,36 @@ import {
     }
   };
 
+  const CustomRightArrow = ({ onClick, ...rest }) => {
+    const {
+      onMove,
+      carouselState: { currentSlide, deviceType }
+    } = rest;
+    // onMove means if dragging or swiping in progress.
+    return <button onClick={() => onClick()} />;
+  };
+
 export default function FeaturedToday() {
 
     const {movies} = useContext(MoviesContext);
 
+    
+
     return(
         
         <div className='featured-container'>
+        <Link to={'/gallery'}>
             <h2 className='section-header'>
                 Featured today
             </h2>
+        </Link>
             <Carousel 
                 responsive={responsive}
                 infinite={true}
                 itemClass='item-class'
                 containerClass='my-container'
                 className='class-name'
+                customRightArrow={<CustomRightArrow />}
             > 
             {movies.map(movie => 
             <div className='carousel-card'>
@@ -66,7 +80,6 @@ export default function FeaturedToday() {
                 <div className='watch-list-container'>
                     <span className='watch-list'><span className='plus'>+</span>WatchList</span> 
                     <div className='trailer-container'>
-
                         <span className='trailer'>Trailer</span>
                     </div>
                 </div>

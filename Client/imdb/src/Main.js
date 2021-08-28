@@ -10,6 +10,7 @@ import MoviesProvider from './MoviesContext';
 import FeaturedToday from "./FeaturedToday/FeaturedToday";
 import MovieToday from './MovieToday/MovieToday';
 import upNext from './Images/upNext.PNG';
+import Gallery from "./FeaturedToday/Gallery";
 
 export default function Main(){
 
@@ -21,6 +22,9 @@ return(
       {/* MovieToday moved to top - doesnt work otherwise -------------------- */}
           <Route path="/MovieToday/:id">
               <MovieToday />
+          </Route>
+          <Route path='/gallery'>
+            <Gallery />
           </Route>
           <Route path="/" exact>
             <div className='grid-header'>
