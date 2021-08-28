@@ -1,4 +1,4 @@
-//import '/gallery.css';
+import './Gallery.css';
 import { useContext } from "react";
 import { MoviesContext } from "../MoviesContext";
 import MovieCard from "./MovieCard";
