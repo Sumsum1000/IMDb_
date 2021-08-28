@@ -3,7 +3,7 @@ import Section from './Section';
 import { useState, useEffect } from 'react';
 import { MoviesContext } from '../MoviesContext';
 import star from '../Images/YellowStar.png';
-import listIcon from '../Images/list-icon.svg';
+//import listIcon from '../Images/list-icon.svg';
 import { useContext } from 'react';
 import {
     useParams,
@@ -12,6 +12,7 @@ import {
   } from "react-router-dom";
   import Carousel from 'react-multi-carousel';
   import 'react-multi-carousel/lib/styles.css';   
+import MovieCard from './MovieCard';
 
   const responsive = {
     superLargeDesktop: {
@@ -66,12 +67,19 @@ export default function FeaturedToday() {
             > 
             {movies.map(movie => 
             <div className='carousel-card'>
-            <Link to={`/MovieToday/${movie.id}`}>   
+            {/* <Link to={`/MovieToday/${movie.id}`}>   
                 <Section movie_url={
-                `https://image.tmdb.org/t/p/w200/${movie.poster_path}`
+                 `https://image.tmdb.org/t/p/w200/${movie.poster_path}`
                 } />
-                </Link>
-                <div  className='fan-favorites-card-bottom'>
+                </Link> */}
+                <MovieCard vote_average={movie.vote_average}
+                           original_title={movie.original_title}
+                           movieId={`/MovieToday/${movie.id}`}
+                           imgUrl={
+                 `https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
+                >
+                </MovieCard>
+                {/* <div  className='fan-favorites-card-bottom'>
                 <div className='carousel-card-rating'>
                     <img className='star-img' src={star} />
                     <p>{movie.vote_average}</p>
@@ -84,7 +92,7 @@ export default function FeaturedToday() {
                     </div>
                 </div>
                
-                </div>
+                </div> */}
             </div>
                 
                 )} 
