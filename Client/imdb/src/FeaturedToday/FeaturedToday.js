@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { MoviesContext } from '../MoviesContext';
 import star from '../Images/YellowStar.png';
 //import listIcon from '../Images/list-icon.svg';
+
+import {ButtonOne, ButtonTwo} from './Buttons';
 import { useContext } from 'react';
 import {
     useParams,
@@ -42,12 +44,11 @@ import MovieCard from './MovieCard';
     // onMove means if dragging or swiping in progress.
     return <button onClick={() => onClick()} />;
   };
+  // <Carousel customRightArrow={<CustomRightArrow />} />;
 
 export default function FeaturedToday() {
 
     const {movies} = useContext(MoviesContext);
-
-    
 
     return(
         
@@ -67,11 +68,6 @@ export default function FeaturedToday() {
             > 
             {movies.map(movie => 
             <div className='carousel-card'>
-            {/* <Link to={`/MovieToday/${movie.id}`}>   
-                <Section movie_url={
-                 `https://image.tmdb.org/t/p/w200/${movie.poster_path}`
-                } />
-                </Link> */}
                 <MovieCard vote_average={movie.vote_average}
                            original_title={movie.original_title}
                            movieId={`/MovieToday/${movie.id}`}
@@ -79,7 +75,26 @@ export default function FeaturedToday() {
                  `https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
                 >
                 </MovieCard>
-                {/* <div  className='fan-favorites-card-bottom'>
+            </div>
+                
+                )} 
+                
+            </Carousel>;
+        </div>
+    )
+}
+
+
+
+
+          {/* <Link to={`/MovieToday/${movie.id}`}>   
+                <Section movie_url={
+                 `https://image.tmdb.org/t/p/w200/${movie.poster_path}`
+                } />
+                </Link> */}
+
+
+    {/* <div  className='fan-favorites-card-bottom'>
                 <div className='carousel-card-rating'>
                     <img className='star-img' src={star} />
                     <p>{movie.vote_average}</p>
@@ -93,11 +108,3 @@ export default function FeaturedToday() {
                 </div>
                
                 </div> */}
-            </div>
-                
-                )} 
-                
-            </Carousel>;
-        </div>
-    )
-}
