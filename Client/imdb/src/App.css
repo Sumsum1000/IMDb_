@@ -4,11 +4,11 @@
   grid-template-rows: 55px 650px auto 100px;
   grid-template-areas:
     "header header   header"
-    "empty trailers empty-r"
+    "trailers trailers trailers"
     "empty featured empty-r"
     "empty footer   empty-r";
   background-color: black;
-  height: 100%;
+  min-height: 100vh;
 }
 
 body,
@@ -19,15 +19,15 @@ html {
 
 .grid-header {
   grid-area: header;
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
 }
 
 .grid-trailers {
   grid-area: trailers;
   display: flex;
-  width: 100%;
-  height: 100%;
+  width: fit-content;
+  margin: auto;
   margin-top: 10px;
 }
 
@@ -40,4 +40,22 @@ html {
 .grid-trailers .upNext {
   width: 403px;
   height: 496px;
+}
+
+.grid-MovieToday{
+  grid-area: trailers;
+  width: fit-content;
+  margin: auto;
+}
+
+.grid-signIn{
+  grid-area: trailers;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, 
+  rgba(185,185,182,1) 16%, 
+  rgba(192,192,188,1) 40%, 
+  rgba(207,206,202,1) 63%, 
+  rgba(226,225,220,1) 82%, 
+  rgba(227,226,221,1) 100%);
 }

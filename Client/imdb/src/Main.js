@@ -11,6 +11,10 @@ import FeaturedToday from "./FeaturedToday/FeaturedToday";
 import MovieToday from './MovieToday/MovieToday';
 import upNext from './Images/upNext.PNG';
 import Gallery from "./FeaturedToday/Gallery";
+import UsersProvider from "./User.context";
+import SignIn from './SignIn';
+import CreateAccount from './CreateAccount';
+
 
 export default function Main(){
 
@@ -18,32 +22,53 @@ return(
  <>
     <Router>
       <MoviesProvider>
+        <UsersProvider>
       <Switch>
-      {/* MovieToday moved to top - doesnt work otherwise -------------------- */}
+
+          <Route path="/signin" exact>
+          <div className='grid-header'>
+                  <NavHeader />
+          </div>
+          <div className='grid-signIn'>
+            <SignIn/>
+          </div>
+          </Route>
+
+          <Route path="/create_Account">
+            <CreateAccount/>
+          </Route>
+
           <Route path="/MovieToday/:id">
-              <MovieToday />
+            <div className='grid-MovieToday'>
+                <MovieToday />
+            </div>
+            <div className='grid-header'>
+                  <NavHeader />
+          </div>
           </Route>
           <Route path='/gallery'>
             <Gallery />
           </Route>
           <Route path="/" exact>
-            <div className='grid-header'>
-                <NavHeader />
-            </div>
             <div className='grid-trailers'>
                 <Trailers />
                 <img className= "upNext" src={upNext}/>
             </div>
                 <FeaturedToday />
+            <div className='grid-header'>
+                  <NavHeader />
+          </div>
           </Route>
 
           <Route path="/:id">
-            <div className='grid-header'>
-                <NavHeader />
-            </div>
             <Trailer />
+            <div className='grid-header'>
+                  <NavHeader />
+          </div>
           </Route>
+
           </Switch>
+          </UsersProvider>
         </MoviesProvider>
       </Router>
 </>

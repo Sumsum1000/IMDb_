@@ -1,13 +1,15 @@
-import loadJson from 'load-json-file';
+import mongo from 'mongodb';
+import { Movie } from './db/Movies.model.mjs';
+const { ObjectId } = mongo;
 
-let movies = loadJson.sync('./data/movies.json');
 
 export function getMovies() {
-    return movies;
+    return Movie
+    .find();
 }
 
 export function getMovie(id) {
-    const [ movie ] = movies.filter(movie => movie.id == id);
-    return movie;
+    return Movie
+    .findOne({_id: ObjectId(id)});
 }
 

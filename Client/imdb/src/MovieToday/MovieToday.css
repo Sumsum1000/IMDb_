@@ -1,6 +1,7 @@
 .rating-root {
   /* background-color: rgb(49, 44, 37); */
   width: 100%;
+  
 }
 
 .line {
@@ -131,7 +132,7 @@ img + span {
   grid-template-areas: "left center right";
 }
 .movie-today {
-  grid-area: trailers;
+  /* grid-area: trailers; */
   position: relative;
 }
 

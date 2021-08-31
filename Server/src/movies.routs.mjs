@@ -4,12 +4,12 @@ import {getMovie} from './movies.services.mjs';
 
 export const MoviesRouter = express.Router();
 
-MoviesRouter.get('/', (req, res) => {
-    res.send(getMovies());
+MoviesRouter.get('/', async (req, res) => {
+    res.send(await getMovies());
 });
 
-MoviesRouter.get('/:id', (req, res) => {
-    res.send(getMovie(req.params.id));
+MoviesRouter.get('/:id', async (req, res) => {
+    res.send(await getMovie(req.params.id));
 });
 
 
