@@ -7,6 +7,7 @@ import jwt from 'jsonwebtoken';
 import {MoviesRouter} from './src/movies.routs.mjs';
 import { usersRouter } from './src/users.routs.mjs';
 
+
 const SECRET = 'snow';
 export const app = express();
 
@@ -15,6 +16,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/Movies', MoviesRouter);
+//app.use('/api/Featured', MoviesRouter);
 app.use('/api/users', usersRouter);
 
 app.post('/api/login', async (req, res) => {

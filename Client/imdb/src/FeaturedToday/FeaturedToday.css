@@ -1,7 +1,12 @@
 .section-header {
   color: #f5c518;
+  text-decoration: none;
   font-weight: 500;
   font-size: 32px;
+}
+
+.section-header a {
+  color: #f5c518;
 }
 
 .featured-container {
@@ -76,6 +81,31 @@ span.trailer {
 
 .trailer-container {
   display: flex;
+}
+
+.button {
+  position: absolute;
+
+  height: fit-content;
+  width: fit-content;
+  top: 220px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 4px;
+  cursor: pointer;
+  background: rgba(18, 18, 18, 0.45);
+  opacity: 1;
+}
+.button {
+  width: 44px;
+  height: 60px;
+}
+
+.buttonR {
+  left: 5px;
+}
+.buttonL {
+  right: 7px;
+  transform: scaleX(-1);
 }
 
 /* .arrow {
