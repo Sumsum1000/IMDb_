@@ -10,9 +10,10 @@ import MoviesProvider from './MoviesContext';
 import FeaturedToday from "./FeaturedToday/FeaturedToday";
 import MovieToday from './MovieToday/MovieToday';
 import upNext from './Images/upNext.PNG';
-import SignIn from './SignIn';
-import CreateAccount from "./CreateAccount";
+import Gallery from "./FeaturedToday/Gallery";
 import UsersProvider from "./User.context";
+import SignIn from './SignIn';
+import CreateAccount from './CreateAccount';
 
 
 export default function Main(){
@@ -45,7 +46,9 @@ return(
                   <NavHeader />
           </div>
           </Route>
-
+          <Route path='/gallery'>
+            <Gallery />
+          </Route>
           <Route path="/" exact>
             <div className='grid-trailers'>
                 <Trailers />

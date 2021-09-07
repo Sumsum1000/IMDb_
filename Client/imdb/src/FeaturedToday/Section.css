@@ -8,6 +8,10 @@ img.img-carousel {
   height: 290px;
 }
 
+img.img-carousel:hover {
+  opacity: 0.9;
+}
+
 .item-class {
   display: flex;
   justify-content: center;

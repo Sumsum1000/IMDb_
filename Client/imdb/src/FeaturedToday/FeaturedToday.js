@@ -3,6 +3,9 @@ import Section from './Section';
 import { useState, useEffect } from 'react';
 import { MoviesContext } from '../MoviesContext';
 import star from '../Images/YellowStar.png';
+//import listIcon from '../Images/list-icon.svg';
+
+import {ButtonOne, ButtonTwo} from './Buttons';
 import { useContext } from 'react';
 import {
     useParams,
@@ -11,6 +14,7 @@ import {
   } from "react-router-dom";
   import Carousel from 'react-multi-carousel';
   import 'react-multi-carousel/lib/styles.css';   
+import MovieCard from './MovieCard';
 
   const responsive = {
     superLargeDesktop: {
@@ -32,6 +36,16 @@ import {
     }
   };
 
+  const CustomRightArrow = ({ onClick, ...rest }) => {
+    const {
+      onMove,
+      carouselState: { currentSlide, deviceType }
+    } = rest;
+    // onMove means if dragging or swiping in progress.
+    return <button onClick={() => onClick()} />;
+  };
+  // <Carousel customRightArrow={<CustomRightArrow />} />;
+
 export default function FeaturedToday() {
 
     const {movies} = useContext(MoviesContext);
@@ -39,31 +53,28 @@ export default function FeaturedToday() {
     return(
         
         <div className='featured-container'>
+        <Link to={'/gallery'}>
             <h2 className='section-header'>
                 Featured today
             </h2>
+        </Link>
             <Carousel 
                 responsive={responsive}
                 infinite={true}
                 itemClass='item-class'
                 containerClass='my-container'
                 className='class-name'
+                customRightArrow={<CustomRightArrow />}
             > 
             {movies.map(movie => 
             <div className='carousel-card'>
-            <Link to={`/MovieToday/${movie.id}`}>   
-                <Section movie_url={
-                `https://image.tmdb.org/t/p/w200/${movie.poster_path}`
-                } />
-                </Link>
-                <div  className='fan-favorites-card-bottom'>
-                <div className='carousel-card-rating'>
-                    <img className='star-img' src={star} />
-                    <p>{movie.vote_average}</p>
-                </div>
-                <h3 className='carousel-card-movie-title'>{movie.original_title}</h3>
-                    
-                </div>
+                <MovieCard vote_average={movie.vote_average}
+                           original_title={movie.original_title}
+                           movieId={`/MovieToday/${movie.id}`}
+                           imgUrl={
+                 `https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
+                >
+                </MovieCard>
             </div>
                 
                 )} 
@@ -72,3 +83,28 @@ export default function FeaturedToday() {
         </div>
     )
 }
+
+
+
+
+          {/* <Link to={`/MovieToday/${movie.id}`}>   
+                <Section movie_url={
+                 `https://image.tmdb.org/t/p/w200/${movie.poster_path}`
+                } />
+                </Link> */}
+
+
+    {/* <div  className='fan-favorites-card-bottom'>
+                <div className='carousel-card-rating'>
+                    <img className='star-img' src={star} />
+                    <p>{movie.vote_average}</p>
+                </div>
+                <h3 className='carousel-card-movie-title'>{movie.original_title}</h3>
+                <div className='watch-list-container'>
+                    <span className='watch-list'><span className='plus'>+</span>WatchList</span> 
+                    <div className='trailer-container'>
+                        <span className='trailer'>Trailer</span>
+                    </div>
+                </div>
+               
+                </div> */}
