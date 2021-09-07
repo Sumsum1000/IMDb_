@@ -1,7 +1,6 @@
 import express from 'express';
 import { getUsers } from './users.services.mjs';
-import { getUser } from './users.services.mjs';
-import { addUser } from './users.services.mjs';
+import { getUserID } from './users.services.mjs';
 import { editUser } from './users.services.mjs';
 import { deleteUser } from './users.services.mjs';
 
@@ -12,14 +11,14 @@ usersRouter.get('/', async (req, res) => {
     res.send(await getUsers());
 });
 
+// usersRouter.get('/:id', async (req, res) => {
+//     res.send(await getUser(req.params.email));
+// });
+
 usersRouter.get('/:id', async (req, res) => {
-    res.send(await getUser(req.params.id));
+    res.send(await getUserID(req.params.id));
 });
 
-
-usersRouter.post('/', async (req, res) => {
-    res.send(await addUser(req.body));
-});
 
 // Update single product from the list
 usersRouter.put('/:id', async (req, res) => {

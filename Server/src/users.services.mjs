@@ -6,15 +6,6 @@ export function getUsers() {
     return User.find();
 }
 
-export async function getUser(id) {
-    return User.findOne({_id: ObjectId(id)});
-}
-
-export async function addUser(user) {
-    const newUser = new User(user);
-    return newUser.save();
-}
-
 export async function deleteUser(userId) {
     return User.findOneAndDelete({_id: ObjectId(userId)});
 }
@@ -24,6 +15,28 @@ export async function editUser(id, newUser) {
         {_id: ObjectId(id)},
         newUser
     );
+}
+
+export async function getUserID(id) {
+    return User.findOne({_id: ObjectId(id)});
+}
+
+
+// export async function getUser(email) {
+//     return User.findOne({email: email});
+// }
+
+export async function signup(email, username, password) {
+    const newUser = new User({email, username, password});
+    const user = await User.findOne({email, password});
+
+    console.log(user);
+
+    if (user){
+        return false;
+    }else{
+    return newUser.save();
+    }
 }
 
 export async function login(email, password) {

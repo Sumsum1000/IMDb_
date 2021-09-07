@@ -92,11 +92,6 @@
     fill:#f5c518;
 }
 
-/* .Carouselcontainer svg{
-position: absolute;
-right: 200px;
-} */
-
 .containerInfo hr{
     border-color: #3d3d3d;
     border-bottom: 1px solid;
@@ -148,7 +143,7 @@ right: 200px;
   letter-spacing: 0.5px;
 }
 
-
 .trailer-info{
 padding-top: 30px;
 }
+

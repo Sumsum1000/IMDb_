@@ -205,7 +205,6 @@ text-decoration: none;
 
 export default function NavHeader() {
 
- 
     const inputRef = useRef("");
     const {movies} = useContext(MoviesContext);
     const {isLoggedIn, setIsLoggedIn, user, setUser, setMessage} = useContext(UserContext);
@@ -229,7 +228,6 @@ export default function NavHeader() {
         setMessage("");
     }
 
-  
     return (
     <ThemeProvider theme={theme}>
         <HeaderContainer>
@@ -254,6 +252,7 @@ export default function NavHeader() {
                             {SearchedItems.length !== 0 ? 
                               <Ul>
                                   { SearchedItems.map( movie => 
+                                  <Link to={`/${movie.id}`}>
                                   <li> 
                                       <div className="imgSearch"><img src={`http://image.tmdb.org/t/p/w200${movie.poster_path}`}/></div>
                                       <div className="searchcontainer">
@@ -261,7 +260,9 @@ export default function NavHeader() {
                                              <div className="searchdate">{movie.release_date.slice(0,4)}</div>
                                              {movie.genres.map(genre => <span>{genre.name}</span>)}
                                       </div>
-                                  </li> ) }
+                                  </li> 
+                                  </Link>
+                                  ) }
                               </Ul>
                                 :
                                 ""
@@ -288,7 +289,7 @@ export default function NavHeader() {
                 <SignIn>Sign In</SignIn>
             </Link> :
              <>
-             <UserName> Hello {user.username} </UserName> 
+             <UserName> Hello {user.payload.username} </UserName> 
              <SignOut onClick={handleSignOut}> Sign out </SignOut>
              </> }
 

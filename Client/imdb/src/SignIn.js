@@ -10,6 +10,7 @@ import { useContext, useEffect } from 'react';
 
 
 export default function SignIn (){
+    
     const { handleSubmit, register, formState: { errors } } = useForm();
     const {login, isLoggedIn, message, setMessage} = useContext(UserContext);
     const history = useHistory();
@@ -37,16 +38,17 @@ export default function SignIn (){
        <div className="signIn-container">
            <div className="signin-createAccount-container">
                <form onSubmit={handleSubmit(onSubmit)}>
+                   <h1>Sign in</h1>
                    <label>Email</label>
                     <input
                     type="text"
                     autoComplete= "off"
                     {...register("email", {
                     required: "Required",
-                    // pattern: {
-                    //     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    //     message: "invalid email address"
-                    //   }
+                    pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message: "invalid email address"
+                      }
                     })}
                     />
                     <ErrorMessage
@@ -61,10 +63,10 @@ export default function SignIn (){
                     type="password"
                     autoComplete= "off"
                     {...register("password", {
-                    required: "Required",
-                    // pattern: {
-                    //   value:  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
-                    // }
+                    required: "You must specify a password",
+                    pattern: {
+                      value:  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
+                    }
                     })}
                     />
                     <ErrorMessage
@@ -81,6 +83,8 @@ export default function SignIn (){
             
                     <button type="submit" >Sign In</button>
                </form>
+
+               <p class="divider-text"><span>or</span></p>
 
                <Link to="/create_Account">
                     <button>Create a New Account</button>
