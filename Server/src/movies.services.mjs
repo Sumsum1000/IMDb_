@@ -3,17 +3,34 @@ import { Movie } from './db/Movies.model.mjs';
 import { paginate } from 'mongoose-paginate-v2';
 import { query } from 'express';
 const { ObjectId } = mongo;
+import 'express-async-errors';
+import { getUserID } from './users.services.mjs';
 
+
+
+// export function getMovies() {
+//     return Movie
+//     .find();
+// }
 
 export function getMovies() {
     return Movie
     .find()
+<<<<<<< HEAD
 }
 
 export function getFeatured() {
     return Movie
     .find();
     //.aggregate([{$min: {vote_average: 8}}]);
+=======
+    .populate({
+        path: 'reviews',
+        populate: {
+            path: 'author'
+        }
+    })
+>>>>>>> 91a0afbc7563246c0c04ba304ba75feffd84efd6
 }
 
 // export function getMovies(filter={}) {
@@ -34,7 +51,33 @@ export function getFeatured() {
 // }
 
 export function getMovie(id) {
-    return Movie
-    .findOne({_id: ObjectId(id)});
+    return Movie.findOne({id: id});
 }
+
+
+
+export async function addReview(movieID, review) {
+    const movie = await getMovie(movieID);
+    const user = await getUserID(review.userID);
+  
+    console.log(user)
+    const editReview = {
+        score: review.score,
+        title: review.title,
+        body: review.comments,
+        author: review.userID
+    }
+
+   if (user){
+    movie.reviews.push(editReview);
+     movie.save();
+      return editReview;
+
+   }else{
+       return "user doesn't exist!";
+   }
+}
+
+
+
 
