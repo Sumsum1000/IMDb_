@@ -1,7 +1,7 @@
 import mongo from 'mongodb';
 import { Movie } from './db/Movies.model.mjs';
-//import { Featured } from './db/Movies.model.mjs';
 import { paginate } from 'mongoose-paginate-v2';
+import { query } from 'express';
 const { ObjectId } = mongo;
 
 
@@ -10,16 +10,11 @@ export function getMovies() {
     .find()
 }
 
-// export function getFeatured() {
-//     return Movie
-//     .find()
-//     //const result = Movie.aggregate([ {$match: {original_title: F9}}]);
-//     //return Movie;
-//     // return Movie
-//     // .aggregate([
-//     //     {$match: {original_title: F9}}
-//     // ])
-// }
+export function getFeatured() {
+    return Movie
+    .find();
+    //.aggregate([{$min: {vote_average: 8}}]);
+}
 
 // export function getMovies(filter={}) {
 

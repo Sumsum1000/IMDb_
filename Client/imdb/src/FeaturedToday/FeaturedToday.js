@@ -1,17 +1,14 @@
 import './FeaturedToday.css';
-import Section from './Section';
 import { MoviesContext } from '../MoviesContext';
 import star from '../Images/YellowStar.png';
-
-import {ButtonOne, ButtonTwo} from './Buttons';
 import { useContext } from 'react';
 import {
     useParams,
     Link,
     useHistory,
   } from "react-router-dom";
-  import Carousel from 'react-multi-carousel';
-  import 'react-multi-carousel/lib/styles.css';   
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';   
 import MovieCard from './MovieCard';
 
   const responsive = {
@@ -61,8 +58,8 @@ import MovieCard from './MovieCard';
 
 export default function FeaturedToday() {
 
-    const {movies} = useContext(MoviesContext);
-    //console.log('Featured: ', featured);
+    const {movies, featured} = useContext(MoviesContext);
+    console.log('Featured is working: ', featured);
 
     return(
         
@@ -98,28 +95,3 @@ export default function FeaturedToday() {
         </div>
     )
 }
-
-
-
-
-          {/* <Link to={`/MovieToday/${movie.id}`}>   
-                <Section movie_url={
-                 `https://image.tmdb.org/t/p/w200/${movie.poster_path}`
-                } />
-                </Link> */}
-
-
-    {/* <div  className='fan-favorites-card-bottom'>
-                <div className='carousel-card-rating'>
-                    <img className='star-img' src={star} />
-                    <p>{movie.vote_average}</p>
-                </div>
-                <h3 className='carousel-card-movie-title'>{movie.original_title}</h3>
-                <div className='watch-list-container'>
-                    <span className='watch-list'><span className='plus'>+</span>WatchList</span> 
-                    <div className='trailer-container'>
-                        <span className='trailer'>Trailer</span>
-                    </div>
-                </div>
-               
-                </div> */}

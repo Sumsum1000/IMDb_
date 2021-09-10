@@ -23,8 +23,9 @@ return(
     <Router>
       <MoviesProvider>
         <UsersProvider>
+        
       <Switch>
-
+  
           <Route path="/signin" exact>
           <div className='grid-header'>
                   <NavHeader />
@@ -44,7 +45,7 @@ return(
             </div>
             <div className='grid-header'>
                   <NavHeader />
-          </div>
+            </div>
           </Route>
           <Route path='/gallery'>
             <Gallery />

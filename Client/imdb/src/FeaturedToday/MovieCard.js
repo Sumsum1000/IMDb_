@@ -6,23 +6,37 @@ import { MoviesContext } from '../MoviesContext';
 import {
     Link,
   } from "react-router-dom";
-import { Children } from 'react';
+import WishList from '../WishList/WishList';
 
 
-export default function MovieCard({movieId, imgUrl, starSrc, vote_average, original_title}){
+export default function MovieCard({movieId, imgUrl, vote_average, original_title}){
 
-    const {movies} = useContext(MoviesContext);
+    const addMovieToWishList = (movieId, userId) => {
+        const isWishList = true // from userContext
+        fetch('/api/users/id', {
+            method:'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(isWishList)
+          })
+    }
+
+    
+
+    let heartColor = '#ffffff'
 
     return(
         <div>
+               
             <Link to={movieId}>
                 <Section movie_url={imgUrl} />   
             </Link>
-                
+                 
         <div  className='fan-favorites-card-bottom'>
             <div className='carousel-card-rating'>
                 <img className='star-img' src={star} />
                 <p>{vote_average}</p>
+                <WishList onClick={addMovieToWishList} 
+                          wishColor={heartColor}/>
             </div>
             <h3 className='carousel-card-movie-title'>{original_title}</h3>
             <div className='watch-list-container'>

@@ -7,6 +7,8 @@ import star from '../Images/YellowStar.png';
 export default function Gallery() {
 
     const {movies} = useContext(MoviesContext);
+    const {featured} = useContext(MoviesContext);
+
 
     return(
 
