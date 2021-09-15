@@ -147,3 +147,12 @@
 padding-top: 30px;
 }
 
+
+.container .spinner-border{
+  color: white;
+  margin: auto;
+}
+
+.container .spinner-border span{
+  color: white;
+}

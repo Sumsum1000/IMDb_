@@ -20,11 +20,19 @@ app.use(express.json());
 app.use('/api/Movies', MoviesRouter);
 app.use('/api/users', usersRouter);
 
-app.post('/api/Movies/:id/reviews', async (req, res) => {
-    // const {score, title, comments, movieID, userID} = req.body;
-    console.log("body" + req.body)
+const Auth =(req, res, next) => {
+    const token = req.headers['authorization'];
+    try {
+        const valid = jwt.verify(token, SECRET);
+        next();
+    } catch(err) {
+        console.log("err",err)
+        res.status(403).send();
+    }
+}
+
+app.post('/api/Movies/:id/reviews', Auth, async (req, res) => {
     const review = await addReview(req.params.id, req.body);
-  console.log(review)
    if (review){
     res.json(review);
    }else{
@@ -39,17 +47,10 @@ app.post('/api/Movies/:id/reviews', async (req, res) => {
 app.post('/api/signup', async (req, res) => {
     const {email, username, password} = req.body;
     const user = await signup(email, username, password);
-    console.log(user)
+  
     if (user){
-        // res.json({ 
-        //     response: true
-        // });
         res.send(true);
     }else {
-        console.log(user)
-        // res.json({ 
-        //     response: false
-        // });
         res.send(false);
     }
 })
@@ -57,15 +58,15 @@ app.post('/api/signup', async (req, res) => {
 app.post('/api/login', async (req, res) => {
    const {email, password} = req.body;
    const user = await login(email, password)
-   console.log(user);
+  
    if(user) {
        const userResponse = {
            username: user.username,
            id: user.id.toString(),
            email: user.email
        }
-       const token = jwt.sign(userResponse, SECRET, {expiresIn: 60});
-       console.log(token)
+       const token = jwt.sign(userResponse, SECRET, {expiresIn: '1d'});
+   
        res.json({
         token,
         user: userResponse
@@ -77,7 +78,7 @@ app.post('/api/login', async (req, res) => {
    }
 })
 
-app.use(express.static('../simple-products-catalog-react/build/'));
+app.use(express.static('../Client/imdb/build/'));
 
 app.listen(8080);
 

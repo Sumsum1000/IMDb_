@@ -1,6 +1,4 @@
 import mongoose from 'mongoose';
-import autopopulate from 'mongoose-autopopulate';
-import {reviewSchema} from './Review.schema.mjs';
 import {videosSchema} from './Videos.Schema.mjs';
 
 
@@ -110,7 +108,6 @@ const MoviesSchema = new mongoose.Schema({
    
 });
 
-// MoviesSchema.plugin(autopopulate);
-
+ 
 export const Movie = mongoose.model('Movie', MoviesSchema);
 

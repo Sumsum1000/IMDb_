@@ -13,10 +13,19 @@ export default function MoviesProvider({ children }) {
       .then(data => setMovies(data));
   }, []);
 
+
+  function addReviewInternal(index, review) {
+    const newMovies = [...movies];
+    newMovies[index].reviews.push(review);
+    setMovies(newMovies);
+    console.log("newMovies", movies)
+  }
+
   return (
     <MoviesContext.Provider value={{
       movies,
       setMovies,
+      addReviewInternal
     }}>
       {children}
     </MoviesContext.Provider>

@@ -201,6 +201,10 @@ border:none;
 text-decoration: none;
 `;
 
+const StyledLink  = {
+color: 'white'
+};
+
   
 
 export default function NavHeader() {
@@ -210,6 +214,23 @@ export default function NavHeader() {
     const {isLoggedIn, setIsLoggedIn, user, setUser, setMessage} = useContext(UserContext);
     const [value, setValue] = useState('');
     const [SearchedItems, setSearchedItems] = useState([]);
+
+    console.log("user from nav", user)
+
+    useEffect(() => {
+        const handleClick =  e=> {
+            const element = e.target;
+            if(element.closest('input') || element.closest('ul')) {
+                return;
+            } else {
+                setValue("");
+            }
+        }
+        document.addEventListener('click', handleClick);
+        return () => {
+            document.removeEventListener('click', handleClick);
+        }
+    }, []);
 
     const search = () =>{
         setValue(inputRef.current.value);
@@ -227,6 +248,7 @@ export default function NavHeader() {
         setIsLoggedIn(false);
         setMessage("");
     }
+
 
     return (
     <ThemeProvider theme={theme}>
@@ -248,11 +270,11 @@ export default function NavHeader() {
                             </label>
                         </SearchCategorySelector>
                         <SearchTyping>
-                            <SearchInput ref={inputRef} value={value} onChange={search} onBlur={() =>  setValue("")}/>
+                            <SearchInput ref={inputRef} value={value} onChange={search}/>
                             {SearchedItems.length !== 0 ? 
                               <Ul>
                                   { SearchedItems.map( movie => 
-                                  <Link to={`/${movie.id}`}>
+                                  <Link onClick={() => setValue("")} style={StyledLink} to={`/${movie.id}`}>
                                   <li> 
                                       <div className="imgSearch"><img src={`http://image.tmdb.org/t/p/w200${movie.poster_path}`}/></div>
                                       <div className="searchcontainer">
@@ -261,7 +283,7 @@ export default function NavHeader() {
                                              {movie.genres.map(genre => <span>{genre.name}</span>)}
                                       </div>
                                   </li> 
-                                  </Link>
+                                  </Link >
                                   ) }
                               </Ul>
                                 :
@@ -289,7 +311,7 @@ export default function NavHeader() {
                 <SignIn>Sign In</SignIn>
             </Link> :
              <>
-             <UserName> Hello {user.payload.username} </UserName> 
+             <UserName> Hello {user.username} </UserName> 
              <SignOut onClick={handleSignOut}> Sign out </SignOut>
              </> }
 

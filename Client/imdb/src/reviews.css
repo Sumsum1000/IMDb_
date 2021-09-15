@@ -11,6 +11,9 @@
 
   .reviews-container .reviews-section .reviewAdded{
     color: white;
+    padding-bottom: 20px;
+    font-size: 18px;
+    font-family: Verdana, sans-serif;
   }
   
   .reviews-container .reviews-section{
@@ -124,6 +127,65 @@
   padding-top: 20px;
   margin-top: 20px;
 }
+
+
+.reviews-container .usersReviews{
+  padding-bottom: 30px;
+  padding-top: 30px;
+  font-size: 28px;
+  position: relative;
+  margin: auto;
+  width: fit-content;
+}
+
+.reviews-container .usersReviews::before{
+  background: #f5c518;
+  content: '';
+  margin-left: -.75rem;
+  position: absolute;
+  height: 40px;
+  width: 4px;
+}
+
+.paginationBttns {
+  width: 80%;
+  height: 40px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+.paginationBttns a {
+  padding: 10px;
+  margin: 8px;
+  border-radius: 5px;
+  border: 1px solid #f5c518;
+  color: black;
+  cursor: pointer;
+}
+
+.paginationBttns a:hover {
+  color: white;
+  background-color: #f5c518
+  ;
+}
+
+.paginationActive a {
+  color: white;
+  background-color: #f5c518;
+}
+
+.paginationDisabled a {
+  color: white;
+  background-color: grey;
+}
+
+.paginationDisabled a:hover{
+  background-color: grey;
+}
+
   
 
   

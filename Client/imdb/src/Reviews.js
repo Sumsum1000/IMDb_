@@ -9,26 +9,30 @@ import {
     useParams,
     useHistory,
   } from "react-router-dom";
+import ReactPaginate from 'react-paginate';
 
 
-export default function Reviews({selectedMovie}){
+export default function Reviews({selectedMovie, movieIndex}){
     const { id } = useParams();
-    const {movies} = useContext(MoviesContext);
-    const {isLoggedIn, user} = useContext(UserContext);
+    const {movies, addReviewInternal} = useContext(MoviesContext);
+    const {isLoggedIn, user, getToken, setIsLoggedIn, setUser} = useContext(UserContext);
     const [result, setResult] = useState("");
     const { handleSubmit, register, formState: { errors } } = useForm();
-    const MovieReview = selectedMovie.reviews;
+    let MovieReview = selectedMovie.reviews;
     const history = useHistory();
-
+    const [pageNumber, setPageNumber] = useState(0);
+   
 
     const addReview = useCallback((score, title, comments) => {
-        const userID = user.payload.id;
-        console.log("user.payload.id" + user.payload.id)
+        const userID = user.id;
+        const token = getToken();
+        console.log("userid", userID)
 
         fetch(`http://localhost:8080/api/Movies/${id}/reviews`, {
           method: "POST",
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': token
           },
           body: JSON.stringify({
             score, title, comments, userID
@@ -36,20 +40,25 @@ export default function Reviews({selectedMovie}){
         })
           .then(response => response.json())
           .then(data => {
+              console.log("data" ,data)
               setResult(data);
+              const review = data.reviews[data.reviews.length - 1];
+              console.log("review", review)
+           console.log("movieIndex", movieIndex)
+              addReviewInternal(movieIndex, review);
+
+            }).catch(err => {
+         console.log(err)
+                localStorage.clear();
+                setUser({});
+                setIsLoggedIn(false);
+                history.push('/signin');
             });
       }, []);
       
-    const onSubmit = async (values, e) => {
-        console.log("e target" + e.target)
+    const onSubmit = (values, e) => {
         e.target.reset();
-        console.log("inside submit" + result)
-        try {
-          
-            addReview(values.score, values.title, values.comments);
-        } catch(e) {
-            console.log(e);
-        }
+        addReview(values.score, values.title, values.comments);
     }
 
     useEffect(() => {
@@ -57,11 +66,25 @@ export default function Reviews({selectedMovie}){
     }, [history.location.pathname]);
 
 
+    const reviewsPerPage = 5;
+    const pagesVisited = pageNumber * reviewsPerPage;
+    const pageCount = Math.ceil(MovieReview.length / reviewsPerPage);
+
+    const displayReviews = MovieReview
+    .slice(pagesVisited, pagesVisited + reviewsPerPage)
+    .map(MovieReview => <Review key={MovieReview.id} {...MovieReview} />);
+
+    const changePage = ({ selected }) =>{
+        setPageNumber(selected);
+    };
+
+
     return(
         <div className="reviews-container">
+           
         {isLoggedIn ? 
             <section className="reviews-section">
-                <h2>User Reviews</h2>
+                <h2>Users Reviews</h2>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <h3>Add your review</h3>
 
@@ -122,14 +145,28 @@ export default function Reviews({selectedMovie}){
                 ""
             }
 
-
             </section>
              :
              ""
         }
         <section className="reviews-list">
+        <h2 className="usersReviews">Reviews</h2>
              { Array.isArray(movies) && MovieReview.length > 0 
-             ? MovieReview.map(MovieReview => <Review key={MovieReview.id} {...MovieReview} />) 
+             ? 
+             <>
+             {displayReviews}
+             <ReactPaginate
+                previousLabel={"Previous"}
+                nextLabel={"Next"}
+                pageCount={pageCount}
+                onPageChange={changePage}
+                containerClassName={"paginationBttns"}
+                previousLinkClassName={"previousBttn"}
+                nextLinkClassName={"nextBttn"}
+                disabledClassName={"paginationDisabled"}
+                activeClassName={"paginationActive"}
+             />
+             </>
              :
              "No reviews yet..."
              }
