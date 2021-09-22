@@ -16,21 +16,11 @@ import { getUserID } from './users.services.mjs';
 export function getMovies() {
     return Movie
     .find()
-<<<<<<< HEAD
 }
 
 export function getFeatured() {
     return Movie
-    .find();
-    //.aggregate([{$min: {vote_average: 8}}]);
-=======
-    .populate({
-        path: 'reviews',
-        populate: {
-            path: 'author'
-        }
-    })
->>>>>>> 91a0afbc7563246c0c04ba304ba75feffd84efd6
+    .find({vote_average: {$gt: 7}});
 }
 
 // export function getMovies(filter={}) {

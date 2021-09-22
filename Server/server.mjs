@@ -18,7 +18,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/Movies', MoviesRouter);
-//app.use('/api/featured', FeaturedRouter);
+// app.use('/api/Movies/featured', FeaturedRouter);
 app.use('/api/users', usersRouter);
 
 app.post('/api/Movies/:id/reviews', async (req, res) => {
@@ -63,7 +63,8 @@ app.post('/api/login', async (req, res) => {
        const userResponse = {
            username: user.username,
            id: user.id.toString(),
-           email: user.email
+           email: user.email,
+           wishlist: user.wishlist
        }
        const token = jwt.sign(userResponse, SECRET, {expiresIn: 60});
        console.log(token)

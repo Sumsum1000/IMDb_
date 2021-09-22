@@ -7,13 +7,14 @@ export const MoviesContext = React.createContext({
 export default function MoviesProvider({ children }) {
   const [movies, setMovies] = useState([]);
   const [featured, setFeatured] = useState([]);
+  
   useEffect(() => {
-    fetch('http://localhost:8080/api/Movies')
+    fetch('/api/Movies')
       .then(response => response.json())
       .then(data => setMovies(data));
 
 
-      fetch('http://localhost:8080/api/featured')
+      fetch('/api/Movies/featured')
       .then(response => response.json())
       .then(data => setFeatured(data));
 

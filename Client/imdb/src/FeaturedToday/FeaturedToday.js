@@ -58,15 +58,14 @@ import MovieCard from './MovieCard';
 
 export default function FeaturedToday() {
 
-    const {movies, featured} = useContext(MoviesContext);
-    console.log('Featured is working: ', featured);
+    const {featured} = useContext(MoviesContext);
 
     return(
         
         <div className='featured-container'>
         
             <h2 className='section-header'>
-            <Link to={'/gallery'}>Featured today</Link>
+              <Link to={'/gallery'}>Featured today</Link>
             </h2>
         
             <Carousel 
@@ -78,19 +77,17 @@ export default function FeaturedToday() {
                 customRightArrow={<CustomRightArrow />}
                 customLeftArrow={<CustoLeftArrow />}
             > 
-            {movies.map(movie => 
+            {featured.map(movie => 
             <div className='carousel-card'>
                 <MovieCard vote_average={movie.vote_average}
                            original_title={movie.original_title}
+                           id={movie.id}
                            movieId={`/MovieToday/${movie.id}`}
-                           imgUrl={
-                 `https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
+                           imgUrl={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
                 >
                 </MovieCard>
             </div>
-                
-                )} 
-                
+                )}   
             </Carousel>;
         </div>
     )

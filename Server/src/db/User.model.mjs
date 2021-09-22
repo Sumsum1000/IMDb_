@@ -27,6 +27,7 @@ export const userSchema = new mongoose.Schema({
         },
         select: false,
     },
+    wishlist:  [Number],
     signUpDate: {
         type:Date,
         default: () => Date.now(),
@@ -34,5 +35,7 @@ export const userSchema = new mongoose.Schema({
 });
 
 
-export const User = mongoose.model('User', userSchema);
+//export const User = mongoose.model('User', userSchema);
+export const User = mongoose.model('users', userSchema);
+
 

@@ -39,7 +39,7 @@ return(
             <CreateAccount/>
           </Route>
 
-          <Route path="/MovieToday/:id">
+          <Route path="/MovieToday/:id"> 
             <div className='grid-MovieToday'>
                 <MovieToday />
             </div>

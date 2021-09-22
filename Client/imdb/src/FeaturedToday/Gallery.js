@@ -1,21 +1,19 @@
 import './Gallery.css';
 import { useContext } from "react";
 import { MoviesContext } from "../MoviesContext";
+import { UserContext } from '../User.context';
 import MovieCard from "./MovieCard";
 import star from '../Images/YellowStar.png';
 
-export default function Gallery() {
+export default function Gallery(isColored) {
 
-    const {movies} = useContext(MoviesContext);
+
     const {featured} = useContext(MoviesContext);
-
 
     return(
 
-        
-
         <div className='gallery'>
-            {movies.map(movie => <MovieCard  starSrc={star}
+            {featured.map(movie => <MovieCard  starSrc={star}
             vote_average={movie.vote_average}
             original_title={movie.original_title}
             movieId={`/MovieToday/${movie.id}`}

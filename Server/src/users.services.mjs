@@ -17,6 +17,37 @@ export async function editUser(id, newUser) {
     );
 }
 
+export async function addToWishlist(id, movieId){
+    const user = await User.findOne({_id: ObjectId(id)});
+    if(user.wishlist.includes(movieId)) {
+        const index = user.wishlist.indexOf(movieId);
+        user.wishlist.splice(index, 1);
+    } else {
+        user.wishlist.push(movieId);
+    }
+    return user.save();   
+}
+
+
+// export async function editUser(id, movieId) {
+//     const user = await getUserID(id);
+//     if (user){
+//         user.wishlist.push(movieId);
+//         return user.save();
+//     }else console.log('No user');
+ 
+
+//     // return User.findOneAndUpdate(
+//     //     {_id: ObjectId(id)},
+//     //     newUser
+//     // );
+// }
+
+export async function addUser(user) {
+    const newUser = new User(user);
+    return newUser.save();
+}
+
 export async function getUserID(id) {
     return User.findOne({_id: ObjectId(id)});
 }
@@ -41,6 +72,7 @@ export async function signup(email, username, password) {
 
 export async function login(email, password) {
         const user = await User.findOne({email, password});
+        console.log('user server: ', user);
         return (user);
     }
 

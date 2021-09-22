@@ -6,7 +6,12 @@
 }
 
 .section-header a {
-  color: #f5c518;
+  color: rgb(245, 197, 24);
+  text-decoration: none;
+}
+
+.section-header a:hover {
+  color: rgb(245, 197, 24, 0.9);
 }
 
 .featured-container {

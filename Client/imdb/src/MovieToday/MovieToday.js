@@ -5,7 +5,6 @@ import star from '../Images/YellowStar.png';
 import share from '../Images/Share.png';
 import apps from '../Images/Apps.png';
 import { useParams } from 'react-router';
-import { Link } from 'react-router-dom';
 
 export default function MovieToday() {
     
@@ -80,32 +79,3 @@ export default function MovieToday() {
     )
 }
 
-
-// import './MovieToday.css';
-// import star from '../Images/Star.png';
-// import {
-//     useParams,
-//     Link,
-//     useHistory,
-//   } from "react-router-dom";
-
-// export default function MovieToday({movie_url}) {
-//     return(
-//             <div>
-
-//                 <div className='movie-today-header'>
-//                     <div>
-//                         <h3>Fight Club</h3>
-//                         <span>1999 2h 19min</span>
-//                     </div>
-//                     <div className='movie-today-rating'>
-//                         <span>IMDB RATING</span>
-//                         <span>8.8/10</span>
-//                         <span>1.9M</span>
-//                         <img className='start-icon' src={star} />
-//                    </div>  
-//                </div>
-                       
-//             </div>
-//     )
-// }

@@ -9,13 +9,13 @@ function getToken() {
 
 export default function UsersProvider({ children }) {
   const [isLoggedIn, setIsLoggedIn] = useState(!!getToken());
-  const [user, setUser] = useState(jwt.decode(getToken(), {complete: true}));
+  const [user, setUser] = useState(jwt.decode(getToken()));
   const [message, setMessage] = useState("");
 
-  console.log(user)
+  console.log('UserContext', user)
 
   const login = useCallback((email, password) => {
-    fetch('http://localhost:8080/api/login', {
+    fetch('/api/login', {  //http://localhost:8080/api/login
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
@@ -49,7 +49,7 @@ export default function UsersProvider({ children }) {
       setIsLoggedIn,
       login,
       message,
-      setMessage,
+      setMessage
     }}>
       {children}
     </UserContext.Provider>

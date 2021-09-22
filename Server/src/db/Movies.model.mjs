@@ -111,14 +111,11 @@ const MoviesSchema = new mongoose.Schema({
    
 });
 
-<<<<<<< HEAD
 MoviesSchema.plugin(paginate);
 
 export const Movie = mongoose.model('Movie', MoviesSchema);
 //export const Featured = mongoose.model('Featured', MoviesSchema);
-=======
 // MoviesSchema.plugin(autopopulate);
 
-export const Movie = mongoose.model('Movie', MoviesSchema);
 
->>>>>>> 91a0afbc7563246c0c04ba304ba75feffd84efd6
+
