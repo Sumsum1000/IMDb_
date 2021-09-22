@@ -6,3 +6,25 @@
   flex-wrap: wrap;
   height: auto;
 }
+
+.paginate-container {
+  background-color: darkcyan;
+}
+
+.active {
+  background-color: darkgoldenrod;
+  display: flex;
+}
+
+.paginate-style {
+  background-color: brown;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-link {
+  background-color: rgb(170, 222, 135);
+}
