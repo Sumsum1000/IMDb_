@@ -14,18 +14,19 @@ export default function MoviesProvider({ children }) {
   }, []);
 
 
-  function addReviewInternal(index, review) {
-    const newMovies = [...movies];
-    newMovies[index].reviews.push(review);
-    setMovies(newMovies);
-    console.log("newMovies", movies)
-  }
+  // function addReviewInternal(index, review) {
+  //   const newMovies = [...movies];
+  //   console.log("newMovies[index]",newMovies[index])
+  //   newMovies[index].reviews.push(review);
+  //   setMovies(newMovies);
+  //   console.log("newMovies", movies[index])
+  // }
 
   return (
     <MoviesContext.Provider value={{
       movies,
       setMovies,
-      addReviewInternal
+      // addReviewInternal
     }}>
       {children}
     </MoviesContext.Provider>

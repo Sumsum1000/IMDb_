@@ -13,7 +13,11 @@ import ReactPaginate from 'react-paginate';
 
 
 export default function Reviews({selectedMovie, movieIndex}){
+    console.log("selectedMovie from Reviews", selectedMovie)
+    
+
     const { id } = useParams();
+    console.log("id from use parames reviews" , id)
     const {movies, addReviewInternal} = useContext(MoviesContext);
     const {isLoggedIn, user, getToken, setIsLoggedIn, setUser} = useContext(UserContext);
     const [result, setResult] = useState("");
@@ -26,7 +30,7 @@ export default function Reviews({selectedMovie, movieIndex}){
     const addReview = useCallback((score, title, comments) => {
         const userID = user.id;
         const token = getToken();
-        console.log("userid", userID)
+        const movieID = id;
 
         fetch(`http://localhost:8080/api/Movies/${id}/reviews`, {
           method: "POST",
@@ -40,15 +44,12 @@ export default function Reviews({selectedMovie, movieIndex}){
         })
           .then(response => response.json())
           .then(data => {
-              console.log("data" ,data)
               setResult(data);
-              const review = data.reviews[data.reviews.length - 1];
-              console.log("review", review)
-           console.log("movieIndex", movieIndex)
-              addReviewInternal(movieIndex, review);
+            //   const review = data.reviews[data.reviews.length - 1];
+            //   addReviewInternal(movieIndex, review);
 
             }).catch(err => {
-         console.log(err)
+                console.log(err)
                 localStorage.clear();
                 setUser({});
                 setIsLoggedIn(false);
@@ -57,8 +58,8 @@ export default function Reviews({selectedMovie, movieIndex}){
       }, []);
       
     const onSubmit = (values, e) => {
-        e.target.reset();
         addReview(values.score, values.title, values.comments);
+        e.target.reset();
     }
 
     useEffect(() => {
@@ -73,7 +74,7 @@ export default function Reviews({selectedMovie, movieIndex}){
     const displayReviews = MovieReview
     .slice(pagesVisited, pagesVisited + reviewsPerPage)
     .map(MovieReview => <Review key={MovieReview.id} {...MovieReview} />);
-
+    
     const changePage = ({ selected }) =>{
         setPageNumber(selected);
     };
@@ -139,7 +140,8 @@ export default function Reviews({selectedMovie, movieIndex}){
             {
                 result ? 
                 <div className="reviewAdded">
-                  Thank you for your review!
+                 <p> Thank you for your review!</p>
+                 <p> It will be added shortly. </p>
                 </div>
                 :
                 ""

@@ -4,6 +4,13 @@
   font-size: 32px;
 }
 
+.featured-container a{
+  color: #f5c518;
+  text-decoration: none;
+  width: fit-content;
+  z-index: 100;
+}
+
 .featured-container {
   grid-area: featured;
   display: flex;

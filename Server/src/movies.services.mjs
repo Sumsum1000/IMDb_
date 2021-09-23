@@ -29,6 +29,8 @@ export function getMovie(id) {
 
 export async function addReview(movieID, review) {
     const movie = await getMovie(movieID);
+    console.log("movieID is", movieID)
+    console.log("movie is", movie)
     const user = await getUserID(review.userID);
   
     console.log("user",user)
@@ -42,9 +44,8 @@ export async function addReview(movieID, review) {
    if (user){
     movie.reviews.push(editReview);
     await movie.save();
-     const newMovie = await getMovie(movieID);
-     console.log("newMovie", newMovie)
-      return newMovie;
+    const newMovie = await getMovie(movieID);
+    return newMovie;
 
    }else{
        return "user doesn't exist!";

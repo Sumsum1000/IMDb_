@@ -80,7 +80,9 @@ app.post('/api/login', async (req, res) => {
 
 app.use(express.static('../Client/imdb/build/'));
 
-app.listen(8080);
+const port = process.env.PORT || 8080;
+app.listen(port);
 
-console.log("Server is listening on http://localhost:8080");
+
+console.log("Server is listening on http://localhost:" + port);
 
