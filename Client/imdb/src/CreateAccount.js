@@ -7,6 +7,7 @@ import {
     Link,
     useHistory,
   } from "react-router-dom";
+import loading from './Images/loading-icegif-1.gif';
 
 
 export default function CreateAccount (){
@@ -34,7 +35,7 @@ export default function CreateAccount (){
             });
       }, []);
 
-      console.log(result)
+
     const onSubmit = async (values, e) => {
         e.target.reset();
         try {
@@ -46,15 +47,22 @@ export default function CreateAccount (){
 
     useEffect(() => {
         setResult("");
-        console.log(result)
      
     }, [history.location.pathname]);
+
+    useEffect(() =>{
+      if (result === true){
+        setTimeout(() =>{
+          history.push('./signin');
+        },4000);
+      }
+    }, [result])
     
 
     return(
         <div className="createAccount-container">
              <Link to={"/"}>
-                 <img src={logo} alt='logo' />
+                 <img className="logoImg" src={logo} alt='logo' />
               </Link>
               <form onSubmit={handleSubmit(onSubmit)}>
                   <h1>Create account</h1>
@@ -136,7 +144,12 @@ export default function CreateAccount (){
                { result.length == 0 ?
                      "" :
                      result == true ?
-                    <div className="success">User created successfully <Link to="/signin"><span>Login</span></Link></div>
+                    // <div className="success">User created successfully <Link to="/signin"><span>Login</span></Link></div>
+                    <div className="successContainer">
+                        <p className="success"> User was created successfully! </p>
+                        <p className="success2">Please login to continue</p>
+                        <img className="loading-gif" src={loading}/>
+                    </div>
                     : 
                     <div className="fail">User already exists  <i></i></div>
                     
