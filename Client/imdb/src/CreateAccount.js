@@ -108,7 +108,7 @@ export default function CreateAccount (){
                     <ErrorMessage
                     errors={errors}
                     name="password"
-                    message = "password must contain at least 8 characters. Must contain at least 1 uppercase letter, 1 lowercase letter, 1 number and 1 special characters"
+                    message = "password must contain at least 6 characters. Must contain at least 1 uppercase letter, 1 lowercase letter, 1 number and 1 special characters"
                     render={({ message }) => <p>{message}</p>}
                     />
 
