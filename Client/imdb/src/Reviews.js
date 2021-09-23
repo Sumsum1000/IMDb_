@@ -126,16 +126,27 @@ export default function Reviews({selectedMovie, movieIndex}){
                     />
 
                     <label>Comments</label>
-                    <input
+                    <textarea
+                    className="comments"
+                    autoComplete= "off"
+                    maxlength="100"
+                     {...register("comments", {
+                        required: "Required",
+                     })} 
+                     />
+                    {/* <input
                         className="comments"
                         type="text"
                         autoComplete= "off"
+                        onKeyPress={e => {
+                            if (e.key === 'Enter') e.preventDefault();
+                          }}
                         {...register("comments", {
                         required: "Required",
                         })}
-                    />
+                    /> */}
         
-                    <button type="submit" >Submit</button>
+                    <button type="submit">Submit</button>
                 </form>
             {
                 result ? 
