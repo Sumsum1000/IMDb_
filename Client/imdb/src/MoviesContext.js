@@ -8,7 +8,7 @@ export default function MoviesProvider({ children }) {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/Movies')
+    fetch('/api/Movies')
       .then(response => response.json())
       .then(data => setMovies(data));
   }, []);

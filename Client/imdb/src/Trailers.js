@@ -39,6 +39,6 @@ export default function Trailers(){
           })}
     </Carousel>
   )
-  : "Loading..."
+  : <div className="loading"> Loading... </div>
 }
 

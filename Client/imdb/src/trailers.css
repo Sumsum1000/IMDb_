@@ -118,3 +118,8 @@ left:2%
 .carousel .carousel-inner a:hover .play-icon svg{
     fill:#f5c518;
 }
+
+.loading{
+    color: white;
+    font-size: 20px;
+}

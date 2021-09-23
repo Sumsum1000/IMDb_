@@ -32,7 +32,7 @@ export default function Reviews({selectedMovie, movieIndex}){
         const token = getToken();
         const movieID = id;
 
-        fetch(`http://localhost:8080/api/Movies/${id}/reviews`, {
+        fetch(`/api/Movies/${id}/reviews`, {
           method: "POST",
           headers: {
             'Content-Type': 'application/json',

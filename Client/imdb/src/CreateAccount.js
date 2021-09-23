@@ -19,7 +19,7 @@ export default function CreateAccount (){
 
 
     const signup = useCallback((email, username, password) => {
-        fetch('http://localhost:8080/api/signup', {
+        fetch('/api/signup', {
           method: "POST",
           headers: {
             'Content-Type': 'application/json'
