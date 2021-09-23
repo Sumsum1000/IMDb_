@@ -18,7 +18,6 @@ export default function Trailer(){
     const selectedIndex = movies.findIndex(movie => movie.id == id);
     const selectedMovie = movies[selectedIndex];
     const history = useHistory();
-    console.log("selectedMovie from trailer", selectedMovie)
    
  
     const PrevSelect = () =>{

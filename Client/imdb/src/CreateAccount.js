@@ -101,14 +101,14 @@ export default function CreateAccount (){
                     {...register("password", {
                     required: "You must specify a password",
                     pattern: {
-                      value:  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
+                      value:  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*[\*\?\-\_\!]).{6,}$/
                     }
                     })}
                     />
                     <ErrorMessage
                     errors={errors}
                     name="password"
-                    message = "password must contain at least 8 characters. must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number. Can contain special characters"
+                    message = "password must contain at least 8 characters. Must contain at least 1 uppercase letter, 1 lowercase letter, 1 number and 1 special characters"
                     render={({ message }) => <p>{message}</p>}
                     />
 
