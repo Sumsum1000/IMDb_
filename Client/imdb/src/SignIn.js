@@ -64,23 +64,9 @@ export default function SignIn (){
                     autoComplete= "off"
                     {...register("password", {
                     required: "You must specify a password",
-                    pattern: {
-                      value:  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
-                    }
                     })}
                     />
-                    <ErrorMessage
-                    errors={errors}
-                    name="password"
-                    message = "password must contain at least 8 characters. must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number. Can contain special characters"
-                    render={({ message }) => <p>{message}</p>}
-                    />
-                   { message.length > 0 &&
-                    <div className="message">{message}
-                    <i></i>
-                    </div>
-                   }
-            
+                 
                     <button type="submit" >Sign In</button>
                </form>
 

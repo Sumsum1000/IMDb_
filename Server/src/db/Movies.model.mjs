@@ -1,7 +1,4 @@
 import mongoose from 'mongoose';
-import paginate  from 'mongoose-paginate';
-import autopopulate from 'mongoose-autopopulate';
-import {reviewSchema} from './Review.schema.mjs';
 import {videosSchema} from './Videos.Schema.mjs';
 
 
@@ -111,8 +108,7 @@ const MoviesSchema = new mongoose.Schema({
    
 });
 
-MoviesSchema.plugin(paginate);
-
+ 
 export const Movie = mongoose.model('Movie', MoviesSchema);
 //export const Featured = mongoose.model('Featured', MoviesSchema);
 // MoviesSchema.plugin(autopopulate);

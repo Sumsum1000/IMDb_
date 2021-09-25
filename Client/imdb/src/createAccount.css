@@ -11,7 +11,7 @@
     padding-top: 10px;
 }
 
-.createAccount-container img{
+.createAccount-container .logoImg{
     width: 107px;
     height: 52px;
 }
@@ -133,22 +133,34 @@
     margin-left: 20px;
 }
 
-
-.createAccount-container .success{
-    border: 1px solid green;
+.successContainer {
+    border: 1px solid black;
     border-radius: 4px;
-    width: 312px;
-    height: 72px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    position: relative;
+    z-index: 999;
+    bottom: 300px;
+    background-color: white;
+    height: 210px;
+    width: 443px;
+}
+
+
+.successContainer .success{
     text-align: center;
     padding-top: 10px;
-    font-size: 18px;
+    font-size: 20px;
     font-family: Roboto, sans-serif;
     margin-top:20px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-.createAccount-container .success a{
-    display: block;
-    font-size: 14px;
+.successContainer .success2{
+    font-size: 15px;
+    width: fit-content;
+    margin-left: 135px;
 }
 
+.successContainer .loading-gif{
+   width: 30%;
+   margin-left: 150px;
+}

@@ -1,21 +1,21 @@
 import mongo from 'mongodb';
 import { Movie } from './db/Movies.model.mjs';
-import { paginate } from 'mongoose-paginate-v2';
-import { query } from 'express';
-const { ObjectId } = mongo;
+//import { query } from 'express';
+//const { ObjectId } = mongo;
 import 'express-async-errors';
 import { getUserID } from './users.services.mjs';
 
 
-
-// export function getMovies() {
-//     return Movie
-//     .find();
-// }
-
 export function getMovies() {
     return Movie
     .find()
+    // .sort({ reviews: 'ascending' })
+    .populate({
+        path: 'reviews',
+        populate: {
+            path: 'author'
+        }
+    })
 }
 
 export function getFeatured() {
@@ -41,16 +41,23 @@ export function getFeatured() {
 // }
 
 export function getMovie(id) {
-    return Movie.findOne({id: id});
+    return Movie.findOne({id: id}).populate({
+        path: 'reviews',
+        populate: {
+            path: 'author'
+        }
+    });
 }
 
 
 
 export async function addReview(movieID, review) {
     const movie = await getMovie(movieID);
+    console.log("movieID is", movieID)
+    console.log("movie is", movie)
     const user = await getUserID(review.userID);
   
-    console.log(user)
+    console.log("user",user)
     const editReview = {
         score: review.score,
         title: review.title,
@@ -60,8 +67,9 @@ export async function addReview(movieID, review) {
 
    if (user){
     movie.reviews.push(editReview);
-     movie.save();
-      return editReview;
+    await movie.save();
+    const newMovie = await getMovie(movieID);
+    return newMovie;
 
    }else{
        return "user doesn't exist!";

@@ -7,6 +7,7 @@ import {
     Link,
     useHistory,
   } from "react-router-dom";
+import loading from './Images/loading-icegif-1.gif';
 
 
 export default function CreateAccount (){
@@ -19,7 +20,7 @@ export default function CreateAccount (){
 
 
     const signup = useCallback((email, username, password) => {
-        fetch('http://localhost:8080/api/signup', {
+        fetch('/api/signup', {
           method: "POST",
           headers: {
             'Content-Type': 'application/json'
@@ -34,7 +35,7 @@ export default function CreateAccount (){
             });
       }, []);
 
-      console.log(result)
+
     const onSubmit = async (values, e) => {
         e.target.reset();
         try {
@@ -46,15 +47,22 @@ export default function CreateAccount (){
 
     useEffect(() => {
         setResult("");
-        console.log(result)
      
     }, [history.location.pathname]);
+
+    useEffect(() =>{
+      if (result === true){
+        setTimeout(() =>{
+          history.push('./signin');
+        },4000);
+      }
+    }, [result])
     
 
     return(
         <div className="createAccount-container">
              <Link to={"/"}>
-                 <img src={logo} alt='logo' />
+                 <img className="logoImg" src={logo} alt='logo' />
               </Link>
               <form onSubmit={handleSubmit(onSubmit)}>
                   <h1>Create account</h1>
@@ -101,14 +109,14 @@ export default function CreateAccount (){
                     {...register("password", {
                     required: "You must specify a password",
                     pattern: {
-                      value:  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
+                      value:  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*[\*\?\-\_\!]).{6,}$/
                     }
                     })}
                     />
                     <ErrorMessage
                     errors={errors}
                     name="password"
-                    message = "password must contain at least 8 characters. must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number. Can contain special characters"
+                    message = "password must contain at least 6 characters. Must contain at least 1 uppercase letter, 1 lowercase letter, 1 number and 1 special characters"
                     render={({ message }) => <p>{message}</p>}
                     />
 
@@ -136,7 +144,12 @@ export default function CreateAccount (){
                { result.length == 0 ?
                      "" :
                      result == true ?
-                    <div className="success">User created successfully <Link to="/signin"><span>Login</span></Link></div>
+                    // <div className="success">User created successfully <Link to="/signin"><span>Login</span></Link></div>
+                    <div className="successContainer">
+                        <p className="success"> User was created successfully! </p>
+                        <p className="success2">Please login to continue</p>
+                        <img className="loading-gif" src={loading}/>
+                    </div>
                     : 
                     <div className="fail">User already exists  <i></i></div>
                     

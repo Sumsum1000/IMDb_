@@ -5,13 +5,11 @@
   font-size: 32px;
 }
 
-.section-header a {
-  color: rgb(245, 197, 24);
+.featured-container a{
+  color: #f5c518;
   text-decoration: none;
-}
-
-.section-header a:hover {
-  color: rgb(245, 197, 24, 0.9);
+  width: fit-content;
+  z-index: 100;
 }
 
 .featured-container {
@@ -113,15 +111,3 @@ span.trailer {
   transform: scaleX(-1);
 }
 
-/* .arrow {
-  width: 15px;
-  height: 15px;
-
-  border: 0 0 0 5px solid white;
-} */
-
-/* svg.list-icon {
-  fill: #5799ef;
-  width: 8%;
-  display: inline-block;
-} */

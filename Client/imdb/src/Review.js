@@ -8,7 +8,7 @@ title,
 creationTime
 }){
 
-console.log("user is " + author)
+
     return (
         <div className="list-item">
             <div className="rating">

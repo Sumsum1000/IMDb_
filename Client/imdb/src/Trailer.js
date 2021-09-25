@@ -8,16 +8,16 @@ import {
   } from "react-router-dom";
 import './trailer.css';
 import Reviews from './Reviews';
+import { Spinner } from 'react-bootstrap';
 
 
 export default function Trailer(){
 
     const { id } = useParams();
     const {movies} = useContext(MoviesContext);
-    const selectedIndex = movies.findIndex(movie => movie.id == id)
+    const selectedIndex = movies.findIndex(movie => movie.id == id);
     const selectedMovie = movies[selectedIndex];
     const history = useHistory();
-
    
  
     const PrevSelect = () =>{
@@ -39,6 +39,8 @@ export default function Trailer(){
 
     return(
         <div className="container">
+            { selectedMovie ? 
+            <>
             <div className="Carouselcontainer">
                 <div className="backContainer">
                 <Link to={"/"}>
@@ -71,7 +73,11 @@ export default function Trailer(){
                     <h3>{selectedMovie.overview}</h3>
                 </div>
             </div>
-            <Reviews selectedMovie={selectedMovie}/>
+            <Reviews movieIndex={selectedIndex} selectedMovie={selectedMovie}/>
+            </>
+             : 
+          <Spinner animation="border" role="status"></Spinner>
+           }
         </div>
        
     )   

@@ -3,19 +3,21 @@ import jwt from 'jsonwebtoken'
 
 export const UserContext = React.createContext();
 
-function getToken() {
+export function getToken() {
   return localStorage.getItem('auth')
 }
 
+// const decoded =  jwt.decode(getToken(), {complete: true});
+const decoded =  jwt.decode(getToken());
+
 export default function UsersProvider({ children }) {
   const [isLoggedIn, setIsLoggedIn] = useState(!!getToken());
-  const [user, setUser] = useState(jwt.decode(getToken()));
+  const [user, setUser] = useState(decoded);
   const [message, setMessage] = useState("");
 
-  console.log('UserContext', user)
 
   const login = useCallback((email, password) => {
-    fetch('/api/login', {  //http://localhost:8080/api/login
+    fetch('/api/login', {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
@@ -26,8 +28,7 @@ export default function UsersProvider({ children }) {
     })
       .then(response => response.json())
       .then(data => {
-        
-        // debugger;
+     
         if(data.user){
           setUser(data.user);
           setIsLoggedIn(true);
@@ -49,7 +50,8 @@ export default function UsersProvider({ children }) {
       setIsLoggedIn,
       login,
       message,
-      setMessage
+      setMessage,
+      getToken,
     }}>
       {children}
     </UserContext.Provider>
