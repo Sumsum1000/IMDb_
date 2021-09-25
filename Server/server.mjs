@@ -7,7 +7,9 @@ import {signup} from './src/users.services.mjs';
 import jwt from 'jsonwebtoken';
 import {MoviesRouter} from './src/movies.routs.mjs';
 import { usersRouter } from './src/users.routs.mjs';
-import { FeaturedRouter } from './src/Featured.routs.mjs';
+//import { FeaturedRouter } from './src/Featured.routs.mjs';
+import { addReview } from './src/movies.services.mjs';
+import 'express-async-errors';
 
 
 const SECRET = 'snow';

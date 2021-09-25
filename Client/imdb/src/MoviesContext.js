@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import InfiniteScroll from "react-infinite-scroll-component";
+//import InfiniteScroll from "react-infinite-scroll-component";
 
 export const MoviesContext = React.createContext({
   movies: []
