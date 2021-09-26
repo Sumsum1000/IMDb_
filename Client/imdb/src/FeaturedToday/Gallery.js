@@ -13,28 +13,44 @@ export default function Gallery(isColored) {
 
 
     return(
-        <InfiniteScroll
-             dataLength={featured.length}
-             next={fetchData}
-             hasMore={true}
-             loader={<h4>Loading...</h4>}
-             endMessage={
-                 <p style={{ textAlign: 'center' }}>
-                 <b>Yay! You have seen it all</b>
-                 </p>
-            }
-        >
-                <div className='gallery'>
-                    {featured.map(movie => <MovieCard  starSrc={star}
-                    vote_average={movie.vote_average}
-                    original_title={movie.original_title}
-                    id={movie.id}
-                    movieId={`/MovieToday/${movie.id}`}
-                    imgUrl={
-                        `https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
-                    />)}
-                </div>
-        </InfiniteScroll>
+        // <div className='gallery'>
+        //     {featured.map(movie => <MovieCard  starSrc={star}
+        //     vote_average={movie.vote_average}
+        //     original_title={movie.original_title}
+        //     movieId={`/MovieToday/${movie.id}`}
+        //     id={movie.id}
+        //     imgUrl={
+        //          `https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
+        //     />)}
+        // </div>
+
+        
+            <InfiniteScroll
+                dataLength={featured.length}
+                next={fetchData}
+                hasMore={true}
+                loader={<h4>Loading...</h4>}
+                endMessage={
+                    <p style={{ textAlign: 'center' }}>
+                    <b>Yay! You have seen it all</b>
+                    </p>
+                }
+            >
+            <div className='galerry-container'>
+                    <div className='gallery'>
+                        {featured.map(movie => <MovieCard  starSrc={star}
+                        vote_average={movie.vote_average}
+                        original_title={movie.original_title}
+                        id={movie.id}
+                        movieId={`/MovieToday/${movie.id}`}
+                        imgUrl={
+                            `https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
+                        />)}
+                    </div>
+                    </div>
+            </InfiniteScroll>
+        
+        
                 
 
  

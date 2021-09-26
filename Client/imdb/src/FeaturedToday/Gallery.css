@@ -8,12 +8,17 @@
   height: auto;
 }
 
-.paginate-container {
+.galerry-container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+/* .paginate-container {
   background-color: darkcyan;
 }
 
 .active {
-  /* background-color: darkgoldenrod; */
   display: flex;
 }
 
@@ -28,4 +33,4 @@
 
 .page-link {
   background-color: rgb(170, 222, 135);
-}
+} */

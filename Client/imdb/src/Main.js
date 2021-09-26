@@ -23,13 +23,15 @@ return(
     <Router>
       <MoviesProvider>
         <UsersProvider>
-        
+        <div className='grid-header'>
+                  <NavHeader />
+          </div>
       <Switch>
   
           <Route path="/signin" exact>
-          <div className='grid-header'>
+          {/* <div className='grid-header'>
                   <NavHeader />
-          </div>
+          </div> */}
           <div className='grid-signIn'>
             <SignIn/>
           </div>
@@ -43,11 +45,14 @@ return(
             <div className='grid-MovieToday'>
                 <MovieToday />
             </div>
-            <div className='grid-header'>
+            {/* <div className='grid-header'>
                   <NavHeader />
-            </div>
+            </div> */}
           </Route>
           <Route path='/gallery'>
+          {/* <div className='grid-header'>
+                  <NavHeader />
+          </div> */}
             <Gallery />
           </Route>
           <Route path="/" exact>
@@ -56,16 +61,16 @@ return(
                 <img className= "upNext" src={upNext}/>
             </div>
                 <FeaturedToday />
-            <div className='grid-header'>
+            {/* <div className='grid-header'>
                   <NavHeader />
-          </div>
+            </div> */}
           </Route>
 
           <Route path="/:id">
             <Trailer />
-            <div className='grid-header'>
+            {/* <div className='grid-header'>
                   <NavHeader />
-          </div>
+            </div> */}
           </Route>
 
           </Switch>
