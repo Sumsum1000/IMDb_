@@ -39,7 +39,7 @@ export default function MovieCard({movieId, id, imgUrl, vote_average, original_t
       const isColored = user && user.wishlist && user.wishlist.includes(id);
     return(
     
-        <div>
+        <div card-wrapper>
             <Link to={movieId}>
                 <Section movie_url={imgUrl} />   
             </Link>

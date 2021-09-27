@@ -5,11 +5,22 @@
   font-size: 32px;
 }
 
-.featured-container a{
+/* .section-header a {
+  color: #f3e1a1;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 32px;
+} */
+
+.featured-container a {
   color: #f5c518;
   text-decoration: none;
   width: fit-content;
   z-index: 100;
+}
+
+.featured-container a:hover {
+  color: rgb(245, 197, 24, 0.9);
 }
 
 .featured-container {
@@ -20,12 +31,16 @@
 
 .fan-favorites-card-bottom {
   width: 200px;
-  height: 200px;
+  height: 180px;
   background-color: rgb(20, 20, 20);
   color: white;
   margin: 0;
   padding: 10px;
   position: relative;
+}
+
+.card-wrapper {
+  background-color: tomato;
 }
 
 .carousel-card {
@@ -110,4 +125,3 @@ span.trailer {
   right: 7px;
   transform: scaleX(-1);
 }
-
