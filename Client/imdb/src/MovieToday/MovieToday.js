@@ -18,7 +18,7 @@ export default function MovieToday() {
         <div className='movie-today'>
     {/* Name and rating - top ----------------------------- */}
         <div className='rating-root'>
-            <div className='xxx'>
+            <div className='movie-today-header'>
                 <div>
                     <h3 className='movie-name'>{currentMovie.original_title}</h3>
                     <span>{currentMovie.release_date}</span>

@@ -53,7 +53,12 @@ export default function MovieCard({movieId, id, imgUrl, vote_average, original_t
             </div>
             <h3 className='carousel-card-movie-title'>{original_title}</h3>
             <div className='watch-list-container'>
-                <span className='watch-list'><span className='plus'>+</span>WatchList</span> 
+                <span className='watch-list'
+                      onClick={()=>toggleWishList(id, user.id)}
+                      isColored={isColored}><span className='plus'
+                >
+                    +
+                </span>WatchList</span> 
                 <div className='trailer-container'>
                     <span className='trailer'>Trailer</span>
                 </div>
