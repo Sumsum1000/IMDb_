@@ -86,7 +86,7 @@ span.watch-list:hover {
 }
 
 span.watch-list:active {
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 span.plus {
@@ -122,7 +122,12 @@ span.trailer {
 .buttonR {
   left: 5px;
 }
+
 .buttonL {
   right: 7px;
   transform: scaleX(-1);
+}
+
+.arrow-hover:hover {
+  fill: rgb(245, 197, 24, 0.9);
 }

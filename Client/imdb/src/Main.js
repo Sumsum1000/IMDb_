@@ -23,7 +23,7 @@ return(
     <Router>
       <MoviesProvider>
         <UsersProvider>
-        <div className='grid-header'>
+          <div className='grid-header'>
                   <NavHeader />
           </div>
       <Switch>

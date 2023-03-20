@@ -10,7 +10,7 @@
     "build": "cd Client/imdb && npm run build",
     "start-server": "cd Server && npm start",
     "start-client": "cd Client/imdb && npm start",
-    "start": "concurrently 'npm:start-server' 'npm:start-client'",
+    "start": "cd ./server && node server.mjs",
     "start:prod": "cd Server && npm run start:prod"
   },
   "author": "",

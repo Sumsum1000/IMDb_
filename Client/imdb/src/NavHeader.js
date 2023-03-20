@@ -205,8 +205,6 @@ const StyledLink  = {
 color: 'white'
 };
 
-  
-
 export default function NavHeader() {
 
     const inputRef = useRef("");
@@ -315,7 +313,6 @@ export default function NavHeader() {
              <UserName> Hello {user.username} </UserName> 
              <SignOut onClick={handleSignOut}> Sign out </SignOut>
              </> }
-
         </HeaderContainer>
     </ThemeProvider>
     )

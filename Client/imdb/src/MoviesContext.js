@@ -16,8 +16,8 @@ export default function MoviesProvider({ children }) {
       .then(response => response.json())
       .then(data => setMovies(data));
 
-
-      fetch('/api/Movies/featured?_page=${page}&_limit=10')
+      ///api/Movies/featured?_page=${page}&_limit=10
+      fetch('/api/Movies/featured')
       .then(response => response.json())
       .then(data => setFeatured(data));
 
@@ -25,7 +25,7 @@ export default function MoviesProvider({ children }) {
 
   const fetchFeatured = async () => {
     const res = await fetch(
-      '/api/Movies/featured?_page=${page}&_limit=10'
+      '/api/Movies/featured'
     );
     const data = await res.json();
     return data;
@@ -35,9 +35,9 @@ export default function MoviesProvider({ children }) {
     const featuredFormServer = await fetchFeatured();
 
     setFeatured([...featured, ...featuredFormServer]);
-    if (featuredFormServer.length === 0 || featuredFormServer.length < 10) {
-      sethasMore(false);
-    }
+    // if (featuredFormServer.length === 0 || featuredFormServer.length < 10) {
+    //   sethasMore(false);
+    // }
     setPage(page + 1);
   };
 

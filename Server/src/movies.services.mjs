@@ -20,7 +20,7 @@ export function getMovies() {
 
 export function getFeatured() {
     return Movie
-    .find({vote_average: {$gt: 7}});
+    .find({vote_average: {$gt: 6}});
 }
 
 // export function getMovies(filter={}) {

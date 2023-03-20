@@ -13,15 +13,15 @@ import WishList from '../WishList/WishList';
 
 export default function MovieCard({movieId, id, imgUrl, vote_average, original_title}){
     
-    const {isLoggedIn, user, setUser} = useContext(UserContext)
+    const {user, setUser} = useContext(UserContext)
 
   
     
     const toggleWishList = (movieId, userId) => {
-        console.log('user: ', user);
-        console.log('wishlist: ', user.wishlist);
-        console.log('user ID: ', user.id);
-        console.log('movie id: ', id);
+        // console.log('user: ', user);
+        // console.log('wishlist: ', user.wishlist);
+        // console.log('user ID: ', user.id);
+        // console.log('movie id: ', id);
 
         fetch(`/api/users/${userId}/wishlist/${movieId}`, {  
             method:'PUT',
