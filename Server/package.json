@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "nodemon server.mjs",
-    "start:prod": "node server.mjs"
+    "start": "cd ./Server && node server.mjs",
+    "start:prod": "node server.mjs",
+    "main": "Server/server.mjs"
   },
   "author": "",
   "license": "ISC",
